@@ -1,0 +1,175 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[ 
+% amsmath=
+% amsthm=
+% array=
+% calc
+% enumerate=
+% extsizes
+% geometry
+% hyperref
+xcolor={usenames,dvipsnames,svgnames,tablem} 
+%,bigger
+,handout
+]{beamer}
+% automatically loaded: xcolor, amsmath, amsthm, calc, geometry, hyperref, extsizes
+
+\input{HEADER}
+% ********************************
+
+\author{Alexander Maringele}
+\title{Term-Indexing
+%\\and\\First Order Theorem Proving
+}
+\subtitle{in\\First Order Theorem Proving}
+\date{January 27th, 2016}
+%======
+
+\begin{document}
+
+\selectlanguage{english}
+
+%\Cloud
+
+% === TITLE ===
+\frame[<+->]{
+\maketitle
+}
+
+% === REFERENCES ===
+\section*{References}
+\frame[<+->]{
+\frametitle{References}
+
+\nocite{SRV2001ti,RV2003eir}	% ZHM2009jar
+\bibliographystyle{amsalpha}
+\bibliography{biblio}
+
+}
+
+% === OVERVIEW ===
+
+\section*{Outline}
+\setcounter{tocdepth}{1}
+\frame[<+->]{
+\frametitle{Outline}
+	\tableofcontents
+}
+
+
+
+%====================================================================
+% BEGIN: CONTENT ----------------------------------------------------
+%====================================================================
+
+%\input{xy}
+
+\section{Saturation-based theorem provers}
+
+\frame{
+	\frametitle{Saturation-based theorem provers}
+	\framesubtitle{General precedure}	
+	\begin{enumerate}
+	\item Start with a set of clauses
+	\item Generate new clauses
+	\item Add generated clauses to the set
+	\item Stop if 
+	\begin{enumerate}
+	\item set is saturated, i.e.~no new clauses were generated
+	\item proof for unsatisfiability has been generated
+	\item time is up (or space is out)
+	\end{enumerate}
+	Otherwise, continue with 2.
+	\end{enumerate}
+}
+
+\subsection{Optimized}
+\frame{
+	\frametitle{Saturation-based theorem provers}	
+	\framesubtitle{Improved procedure}
+	\begin{enumerate}
+	\item Start with a set of clauses
+	\item Generate new clauses with suitable \MYEM{inference} rules
+	\item Add generated \MYEM{non-redundant} clauses to the set
+	\item Stop if 
+	\begin{enumerate}
+	\item set is saturated, i.e.~no non-redundant clauses were generated
+	\item proof for unsatisfiability has been found
+	\item time is up (or space is out)
+	\end{enumerate}
+	Otherwise, continue with 2.
+	\end{enumerate}
+}
+
+\section{Terms}
+
+
+\section{First Order Theorem Proving}
+
+\frame{
+\frametitle{Term retrieval problems}
+\begin{itemize}
+\item Find terms that are variants of a given term.
+$\vari(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$ and $\sigma$ is renaming.
+\item Find terms that are unifiable with a given term. 
+$\unif(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t\sigma$
+\item Find terms that are instances of a given term.
+$\inst(\ell,t) \Leftrightarrow \exists\sigma\ \ell = t\sigma$
+\item Find terms that are generalizations of a given term.
+$\gene(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$
+\end{itemize}
+\begin{definition}
+\end{definition}
+}
+
+\begin{frame}
+% p.1860, 2.1 Definition
+% 703811, p.26, 2.1.14
+\begin{definition}
+A position is a sequence of positive integers.
+The empty sequence $\varepsilon$ denotes the root position,
+$pq$ denotes the concatenation of positions $p$ and $q$,
+%The set of positions is recursively defined: 
+%\[
+%\pos(t)=\left\{ 
+%\begin{array}{ll}
+%	\{ \varepsilon \} & \text{if }t\text{ is variable}\\
+%	\{ \varepsilon \} \cup \{ ip\mid 1\leq i\leq n \land p \in \pos(t_i) \} & \text{if }t=\mf(t_1,\ldots,t_n)
+%\end{array}
+%\right.
+%\]
+%The subterm of $t$ at position $p\in\pos(t)$ is defined:
+%\[
+%t|_p = \left\{
+%\begin{array}{ll}
+%	t & \text{if }p=\varepsilon\\
+%	t_i|_q & \text{if }t=\mf(t_1,\ldots,t_n) \text{ and } p=iq
+%\end{array}
+%\right.
+%\]
+$\pos(t)$ denotes the set of positions in term $t$, and $t|_p$ denotes the subterm of $t$ at positon $p\in\pos(t)$.
+\end{definition}
+
+\begin{definition}
+A postion string is a nonempty string of the form $\langle p_1,s_1\rangle\ldots\langle p_n,s_n\rangle$
+where $p_i$ are positions and $s_i$ are function or variable symbols and
+\begin{enumerate}
+\item
+if $p_i$ is a proper prefix of $p_j$ then $i<j$
+\item
+\end{enumerate}
+\end{definition}
+\end{frame}
+
+\begin{frame}
+% 4.1 Position strings, 4.1 Defintion
+\begin{definition}
+
+\end{definition}
+\end{frame}
+
+%======================
+
+\end{document}
+% ********************************
