@@ -66,15 +66,55 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %\input{xy}
 
 \section{Motivation}
+\subsection{Notion}
 
+\subsection{First Order Clause Logic}
+
+\begin{frame}
+
+\begin{enumerate}
+\item $\Sigma = (\Sigma_\mP, \Sigma_\mf, V )$ \hfill signature
+%\item $P \in \Sigma_\mP = \{ \mA, \mB, \ldots \}$ \hfill predicate symbols 
+%\item $F \in \Sigma_\mf = \{ \mc, \mf,\mg,\ldots \}$ \hfill (constant) function symbols
+%\item $V = \{ x,y,z, \ldots\} $ \hfill variables
+%\item $C ::=  \lnot \mid \lor \mid {\colG \land \mid\ \rightarrow}$\hfill connectives
+%\item {\colG $Q ::= \forall, \exists$ \hfill quantifiers}
+\item $T ::= V \mid F \mid F ( T,\ldots,T)$\hfill terms
+\item $A ::= P \mid P ( T, \ldots, T ) \mid T \foEQ T$ \hfill atoms, i.e.~predicate terms
+%\item {\colG $F ::= A \mid (\lnot F) 
+%	\mid (F \lor F)  \mid (F \land F)  
+%	\mid (F \rightarrow F)
+%	\mid (\forall F)
+%	\mid (\exists F) 
+%	$ 
+%	\hfill formulas
+%	
+%	}
+\item $\ell ::= A \mid \lnot A$\hfill literals
+\item $C ::= \emptyclause \mid \ell \mid C \lor \ell$\hfill clauses
+\item $S ::= \emptyset \mid S \cup C$\hfill set of clauses
+
+$\{ C_1, \ldots, C_n \} \equiv \forall\ \mcV(C_1) C_1 \land \ldots \forall\ \mcV(C_1) C_1$
+
+\vspace{1em}
+A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
+and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
+
+%\item $S ::= \{ C,\lots,C \}$\hfill sets of clauses
+%\item Formulae $F::=$
+
+\end{enumerate}
+
+\end{frame}
+\subsection{Saturation-based theorem provers}
 \frame{
 	\frametitle{Saturation-based theorem provers}
 	\begin{procedure}	
 	\begin{enumerate}
-	\item Transform the negation of a conjecture F
+	\item Transform the negation of a conjecture $F$
 	
 	into a equisatisfiable set of clauses $S$.
-	\item Derive new clauses from $S$	
+	\item Expand $S$ with derived clauses 
 	in a sufficient way.
 	\item Stop if 
 	\begin{enumerate}
@@ -87,10 +127,28 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 	\end{procedure}
 }
 
+\begin{frame}
+
+\newcommand{\innerst}{\begin{tikzpicture}
+\node[diamond, draw=black](Z) {i };
+\end{tikzpicture}}
+
+\begin{tikzpicture}[scale = 2, transform shape]
+%	\node[state, rectangle](M) {
+%		\begin{tikzpicture}
+%		\node[state](X) { \innerst};
+%		\end{tikzpicture}
+%	};
+	
+	path [->] (0,0) to (4.4);
+\end{tikzpicture}
+
+\end{frame}
+
 \subsection{Superposition}
 \begin{frame}
 
-\begin{example}[Superposition calculus]
+\begin{example}[Superposition]
 \vspace{-1em}
 \begin{gather*}
 S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
@@ -147,6 +205,7 @@ $\gamma=\{ y\mapsto\ma\}$
 
 \end{frame}
 
+\subsection{Inst-Gen-Eq}
 \begin{frame}
 \begin{example}[Inst-Gen-Eq]
 %
@@ -204,12 +263,9 @@ $\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
 	\end{remark}
 \end{frame}
 
-\section{Terms}
-
-
-
-
-\section{First Order Theorem Proving}
+\begin{frame}
+$\mf(x,y)\foEQ c, \ldots$
+\end{frame}
 
 \frame{
 \frametitle{Term retrieval problems}
@@ -227,13 +283,15 @@ $\gene(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$
 \end{definition}
 }
 
+\subsection{Position}
 \begin{frame}
 % p.1860, 2.1 Definition
 % 703811, p.26, 2.1.14
 \begin{definition}
 A position is a sequence of positive integers.
 The empty sequence $\varepsilon$ denotes the root position,
-$pq$ denotes the concatenation of positions $p$ and $q$,
+$pq$ denotes the concatenation of positions. 
+%$p$ and $q$,
 %The set of positions is recursively defined: 
 %\[
 %\pos(t)=\left\{ 
