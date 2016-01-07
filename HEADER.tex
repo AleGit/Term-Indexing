@@ -23,8 +23,9 @@
 %\usepackage{amsmath}									% BEAMTER
 %\usepackage{amsthm}									% BEAMTER
 %\usepackage{amssymb}									% 
+
 \usepackage{proof} 				%\infer, \deduce
-\usepackage{marvosym}			% \Lightning
+%\usepackage{marvosym}			% \Lightning
 
 %\usepackage{soul}			% \so\caps\ul\st\hl
 %\usepackage[normalem]{ulem} % \uline\uuline\sout\xout\uwave
@@ -39,30 +40,52 @@
 %\usepackage{ulsy}	% \blitza \blitzb ... \blitze (does not exist anymore? just not included?)
 
 %% ==============================================================
-%% ### MY COLOR DEFINITONS ###			
+%% ### MY COLOR DEFINITONS ###	
 
-\newcommand{\MYa}{\color{Fuchsia}}
-\newcommand{\MYb}{\color{Blue}}
-\newcommand{\MYg}{\color{Gray}}
-\newcommand{\MYo}{\color{Orange}}
+\colorlet{col:a}{Fuchsia}
+\colorlet{col:b}{Blue}
+\colorlet{col:g}{Gray}
+\colorlet{col:o}{Orange}
+\colorlet{col:hi}{Green}
+\colorlet{col:lo}{Red}
+\colorlet{col:na}{Gray}
+\colorlet{col:n}{Blue}
+\colorlet{col:max}{Violet}
+\colorlet{col:smx}{RoyalBlue}
 
-\newcommand{\MYhi}{\color{Green}}
-\newcommand{\MYlo}{\color{Red}}
-\newcommand{\MYna}{\color{Gray}}
+\newcommand{\colA}{\color{col:a}}	% example a
+\newcommand{\colB}{\color{col:b}}	% example b
+\newcommand{\colG}{\color{col:g}}	% neutral
+\newcommand{\colO}{\color{col:o}}	% old
+\newcommand{\colN}{\color{col:n}}	% new
+\newcommand{\colHI}{\color{col:hi}}	% hi, true
+\newcommand{\colLO}{\color{col:lo}}	% lo, false
+\newcommand{\colNA}{\color{col:na}}	% not available		
+\newcommand{\colMAX}{\color{col:max}}	% maximal
+\newcommand{\colSMX}{\color{col:smx}}	% strictly maximal		
 
-\newcommand{\MYA}[1]{{\MYa#1}}
-\newcommand{\MYB}[1]{{\MYb#1}}
-\newcommand{\MYG}[1]{{\MYg#1}}
-\newcommand{\MYO}[1]{{\MYo#1}}
-
-\newcommand{\MYHI}[1]{{\MYhi#1}}
-\newcommand{\MYLO}[1]{{\MYlo#1}}
-\newcommand{\MYNA}[1]{{\MYna#1}}
-
-\newcommand{\MYS}[1]{{\color{Violet}#1}}
+%\newcommand{\MYa}{\color{Fuchsia}}
+%\newcommand{\MYb}{\color{Blue}}
+%\newcommand{\MYg}{\color{Gray}}
+%\newcommand{\MYo}{\color{Orange}}
+%
+%\newcommand{\MYhi}{\color{Green}}
+%\newcommand{\MYlo}{\color{Red}}
+%\newcommand{\MYna}{\color{Gray}}
+%
+%\newcommand{\MYA}[1]{{\MYa#1}}
+%\newcommand{\MYB}[1]{{\MYb#1}}
+%\newcommand{\MYG}[1]{{\MYg#1}}
+%\newcommand{\MYO}[1]{{\MYo#1}}
+%
+%\newcommand{\MYHI}[1]{{\MYhi#1}}
+%\newcommand{\MYLO}[1]{{\MYlo#1}}
+%\newcommand{\MYNA}[1]{{\MYna#1}}
+%
+%\newcommand{\MYS}[1]{{\color{Violet}#1}}
 \newcommand{\MYM}[1]{{\color{RoyalBlue}#1}}
-
-\newcommand{\mLightning}{{\text{\Lightning}}}
+%
+%\newcommand{\mLightning}{{\text{\Lightning}}}
 
 %% ==============================================================
 
@@ -71,6 +94,8 @@
 
 \newcommand{\EQ}{\simeq}
 \newcommand{\NE}{\not\simeq}
+\newcommand{\foEQ}{\approx}		%	{\simeq}
+\newcommand{\foNEQ}{\not\foEQ}
 
 \newcommand\mytop[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
 \newcommand{\mygreek}[1]{\selectlanguage{polutonikogreek}#1\selectlanguage{english}}
@@ -200,18 +225,49 @@
 	{l=r & L[l']}	
 }
 
+\newcommand{\emptyclause}{\square}
+
 %% ==============================================================
 %% ### TIKZ ###
 
 \usepackage{tikz}
-\usetikzlibrary{shapes}
+\usetikzlibrary{automata,arrows,
+%arrows,shapes,snakes,automata,backgrounds,petri, positioning
+%,,automata,shadows,fit,
+% decorations,pathmorphing
+% graphs
+}
 
-\tikzstyle{myrect} = [rectangle,draw=black,rounded corners, minimum height=3em, thick, text centered,text width=5.5em]
-\tikzstyle{mykaro} = [diamond,draw=black,rounded corners, thick, text centered,text width=4em]
-\tikzstyle{mycircle} = [circle,draw=black,thick, text centered, minimum height=3.5em,text width=4em,text width=3.5em]
-\tikzstyle{myarrow} = [thick,->,>=stealth]
+\tikzset{
+	->,
+%	>=stealth', 
+%	shorten >=1pt, 
+%	auto,
+	node distance=2.1cm, 
+%	semithick,
+	minimum size=0,
+%	inner sep=0,
+%	outer sep=2mm,
+%
+%	initial text=$\varepsilon$,
+%	
+	every state/.style={
+		fill=red,
+%		draw=none,
+		text=white,
+%		radius=0.5cm
+	},
+	my/.style={ rectangle, draw=red	},
+%	sloped,below
+}
 
-\tikzstyle{myframe} = [rectangle,draw=black,rounded corners, minimum height=3em, thick, text centered,text width=5.5em]
+
+%\tikzstyle{myrect} = [rectangle,draw=black,rounded corners, minimum height=3em, thick, text centered,text width=5.5em]
+%\tikzstyle{mykaro} = [diamond,draw=black,rounded corners, thick, text centered,text width=4em]
+%\tikzstyle{mycircle} = [circle,draw=black,thick, text centered, minimum height=3.5em,text width=4em,text width=3.5em]
+%\tikzstyle{myarrow} = [thick,->,>=stealth]
+%
+%\tikzstyle{myframe} = [rectangle,draw=black,rounded corners, minimum height=3em, thick, text centered,text width=5.5em]
 
 %% ==============================================================
 

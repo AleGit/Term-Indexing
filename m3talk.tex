@@ -65,44 +65,143 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 %\input{xy}
 
-\section{Saturation-based theorem provers}
+\section{Saturation-based first order theorem provers}
 
 \frame{
 	\frametitle{Saturation-based theorem provers}
 	\framesubtitle{General precedure}	
 	\begin{enumerate}
 	\item Start with a set of clauses
-	\item Generate new clauses
-	\item Add generated clauses to the set
+	\item Derive new clauses
+	
+	with a sound and refutation complete calculus
 	\item Stop if 
 	\begin{enumerate}
-	\item set is saturated, i.e.~no new clauses were generated
-	\item proof for unsatisfiability has been generated
-	\item time is up (or space is out)
+	\item time's up or space's out
+	\item a proof for unsatisfiability has been found
+	\item the set is saturated, hence satisfiable
 	\end{enumerate}
 	Otherwise, continue with 2.
 	\end{enumerate}
 }
 
-\subsection{Optimized}
-\frame{
-	\frametitle{Saturation-based theorem provers}	
-	\framesubtitle{Improved procedure}
-	\begin{enumerate}
-	\item Start with a set of clauses
-	\item Generate new clauses with suitable \MYEM{inference} rules
-	\item Add generated \MYEM{non-redundant} clauses to the set
-	\item Stop if 
-	\begin{enumerate}
-	\item set is saturated, i.e.~no non-redundant clauses were generated
-	\item proof for unsatisfiability has been found
-	\item time is up (or space is out)
-	\end{enumerate}
-	Otherwise, continue with 2.
-	\end{enumerate}
-%}
+\subsection{Superposition}
+\begin{frame}
+
+\begin{example}[Superposition calculus]
+\vspace{-1em}
+\begin{gather*}
+S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+	{}^{2:}\mh(y)\foEQ y, 
+	{}^{3:}\mf(\ma)\foNEQ \mc \}\qquad\\[0.5em]
+%\{ ^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+%	^{2:}\mh(y)\foEQ y, 
+%	^{3:}\mf(\ma)\foNEQ \mc \}  \\
+\newcommand{\stepA}{
+	\infer[ \sigma_a % (S_+)\ \{ y\mapsto x \}
+	]{	\mf(x)\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma
+	}{	^{2:}\mh(y)\foEQ y
+		& 
+		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma
+	}
+}
+\newcommand{\stepB}{
+	\infer[	\sigma_b]
+	{		\mh(\mh(\ma))\foNEQ \ma \lor \mc\foNEQ\mc
+	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
+	}
+}
+\newcommand{\stepC}{
+	\infer[\sigma_c
+	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
+	}{		\stepB
+	}
+}
+\newcommand{\stepD}{
+	\infer[\sigma_d
+	]{	\boxed{\mh(\ma)}\foNEQ\ma
+	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
+	}
+}
+\newcommand{\stepE}{
+	\infer[\sigma_e
+	]{	\ma\foNEQ\ma
+	}{	^{2:}\mh(y)\foEQ y & \stepD
+	}
+}
+\newcommand{\stepF}{
+	\infer[\sigma_f	%(f)
+	]{	\emptyclause
+	}{	\stepE
+	}
+}
+\stepF
+\end{gather*}
+\center
+$\sigma_a = \{ y\mapsto x \}, \sigma_b=\{ x\mapsto\ma\}, \sigma_d=\sigma_e=\{ y\mapsto\ma\}$ 
+\hfill superposition
+
+$\sigma_c = \sigma_f = \{ \}$ 
+\hfill equality resolution 
+\end{example}
+
+\end{frame}
+
+\begin{frame}
+\begin{example}[Inst-Gen-Eq with unit superpositon]
+%
+\vspace{-1em}
+%
+\newcommand{\inferFXC}{
+		\infer[ \sigma]
+		{ \mf(x)\foEQ\mc }
+		{ ^{2^\ell:}\mh(y)\foEQ y & ^{1^\ell:}\mf(\boxed{\mh(x)})\foEQ\mc} 	
+	}
+	\newcommand{\inferCnC}{
+		\infer[ \tau ]
+		{ \emptyclause }
+		{ \inferFXC & ^{3^\ell:}\mf(\ma)\foNEQ \mc } 		
+	}
+%
+	\begin{align*}
+	S_0 &= \{ ^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+	^{2:}\mh(y)\foEQ y, 
+	^{3:}\mf(\ma)\foNEQ \mc \} 
+	\\
+	S_0\bot &= \{ 
+	{\colHI\mf(\mh(\bot))\foEQ\mc} \lor 
+	{\colNA\mh(\mh(\bot))\foNEQ \ma}, 
+	{\colHI\mh(\bot)\foEQ\bot}, 
+	{\colHI\mf(\ma)\foNEQ\mc} 
+	\} 
+\\
+	&
+	{\inferCnC
+	} 
+\\
+	S_1 &= \{ \ldots, 
+		\mf(\ma)\foNEQ\mc, 
+		^{2\sigma\tau:}{\colN\mf(\mh(\ma))\foEQ\mc \lor \mh(\mh(\ma))\foNEQ \ma}, 
+		^{3\tau:}{\colN\mh(\ma)\foEQ\ma}
+	\} 
+\\
+	S_1\bot &=
+ 	\{ \ldots,
+		{\colHI\mf(\ma)\foNEQ \mc}, 
+ 		{\colLO \mf(\mh(\ma))\foEQ\mc
+		\lor\mh(\mh(\ma))\foNEQ \ma}, 
+		{\colHI\mh(\ma)\foEQ\ma} 
+	\} 
+	\end{align*}
+%
+\center
+$\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$, and $\sigma\tau=\{ x\mapsto \ma \}$.
+\end{example}
+\end{frame}
 
 \section{Terms}
+
+
 
 
 \section{First Order Theorem Proving}
@@ -169,7 +268,49 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 \end{definition}
 \end{frame}
 
+\begin{frame}
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.1cm,
+                    semithick]
+  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+
+  \node[initial,state] (A)                    {$q_a$};
+  \node[state]         (B) [above right of=A] {$q_b$};
+  \node[state]         (D) [below right of=A] {$q_d$};
+  \node[state]         (C) [below right of=B] {$q_c$};
+  \node[state]         (E) [below of=D]       {$q_e$};
+
+  \path (A) edge              node {0,1,L} (B)
+            edge              node {1,1,R} (C)
+        (B) edge [loop above] node {1,1,L} (B)
+            edge              node {0,1,L} (C)
+        (C) edge              node {0,1,L} (D)
+            edge [bend left]  node {1,0,R} (E)
+        (D) edge [loop below] node {1,1,R} (D)
+            edge              node {0,1,R} (A)
+        (E) edge [bend left]  node {1,0,R} (A);
+\end{tikzpicture}
+
+\href{http://www.texample.net/tikz/examples/state-machine/}{www.texample.net/tikz/examples/state-machine/}
+\end{frame}
+
 %======================
+
+\begin{frame}
+\frametitle{to do}
+\begin{tikzpicture}[initial text=$\varepsilon$
+% on grid % (positoning)
+]
+\node[initial,state] (1) { a };
+\node[state] (2) [below right of=1]{ b};
+\node[state, accepting] (3) [above right of=1]{c};
+\node[my] (4) at (-2,4) {c};
+%
+\path (1) edge (2) edge [bend right] node [blue,pos=0.1,sloped,below]{ $\mf$} (3)
+edge [out=60, in=60] (3);
+\path (2) edge (3);
+\path (4) edge (3);
+\end{tikzpicture}
+\end{frame}
 
 \end{document}
 % ********************************
