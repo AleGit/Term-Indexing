@@ -65,24 +65,26 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 %\input{xy}
 
-\section{Saturation-based first order theorem provers}
+\section{Motivation}
 
 \frame{
 	\frametitle{Saturation-based theorem provers}
-	\framesubtitle{General precedure}	
+	\begin{procedure}	
 	\begin{enumerate}
-	\item Start with a set of clauses
-	\item Derive new clauses
+	\item Transform the negation of a conjecture F
 	
-	with a sound and refutation complete calculus
+	into a equisatisfiable set of clauses $S$.
+	\item Derive new clauses from $S$	
+	in a sufficient way.
 	\item Stop if 
 	\begin{enumerate}
-	\item time's up or space's out
-	\item a proof for unsatisfiability has been found
-	\item the set is saturated, hence satisfiable
+	\item a proof for unsatisfiability has been found\hfill{\colG F is a theorem}
+	\item the set is saturated, hence satisfiable\hfill{\colG not a theorem} 
+	\item time's up or space's out\hfill \colG we don't know
 	\end{enumerate}
 	Otherwise, continue with 2.
 	\end{enumerate}
+	\end{procedure}
 }
 
 \subsection{Superposition}
@@ -146,7 +148,7 @@ $\gamma=\{ y\mapsto\ma\}$
 \end{frame}
 
 \begin{frame}
-\begin{example}[Inst-Gen-Eq with unit superpositon]
+\begin{example}[Inst-Gen-Eq]
 %
 \vspace{-1em}
 %
@@ -195,6 +197,11 @@ $\gamma=\{ y\mapsto\ma\}$
 \center
 $\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
 \end{example}
+
+\begin{remark}
+	Superposition [Bachmair, Ganzinger],
+	InstGenEq (Ganzinger, Korovin) are sound and refutational complete with a \MYEM{fair} strategy.
+	\end{remark}
 \end{frame}
 
 \section{Terms}
