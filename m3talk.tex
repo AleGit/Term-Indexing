@@ -98,39 +98,39 @@ S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma,
 %	^{2:}\mh(y)\foEQ y, 
 %	^{3:}\mf(\ma)\foNEQ \mc \}  \\
 \newcommand{\stepA}{
-	\infer[ \sigma_a % (S_+)\ \{ y\mapsto x \}
-	]{	\mf(x)\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma
+	\infer[ \alpha % (S_+)\ \{ y\mapsto x \}
+	]{	\mf(x)\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
 	}{	^{2:}\mh(y)\foEQ y
 		& 
-		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma
+		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
 	}
 }
 \newcommand{\stepB}{
-	\infer[	\sigma_b]
-	{		\mh(\mh(\ma))\foNEQ \ma \lor \mc\foNEQ\mc
+	\infer[	\beta]
+	{		{\colNA\mh(\mh(\ma))\foNEQ \ma} \lor \mc\foNEQ\mc
 	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
 	}
 }
 \newcommand{\stepC}{
-	\infer[\sigma_c
+	\infer[\{\}
 	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
 	}{		\stepB
 	}
 }
 \newcommand{\stepD}{
-	\infer[\sigma_d
+	\infer[\gamma
 	]{	\boxed{\mh(\ma)}\foNEQ\ma
 	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
 	}
 }
 \newcommand{\stepE}{
-	\infer[\sigma_e
+	\infer[\gamma
 	]{	\ma\foNEQ\ma
 	}{	^{2:}\mh(y)\foEQ y & \stepD
 	}
 }
 \newcommand{\stepF}{
-	\infer[\sigma_f	%(f)
+	\infer[\{\}	%(f)
 	]{	\emptyclause
 	}{	\stepE
 	}
@@ -138,11 +138,9 @@ S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma,
 \stepF
 \end{gather*}
 \center
-$\sigma_a = \{ y\mapsto x \}, \sigma_b=\{ x\mapsto\ma\}, \sigma_d=\sigma_e=\{ y\mapsto\ma\}$ 
-\hfill superposition
-
-$\sigma_c = \sigma_f = \{ \}$ 
-\hfill equality resolution 
+$\alpha = \{ y\mapsto x \}$, 
+$\beta=\{ x\mapsto\ma\}$, 
+$\gamma=\{ y\mapsto\ma\}$ 
 \end{example}
 
 \end{frame}
@@ -195,7 +193,7 @@ $\sigma_c = \sigma_f = \{ \}$
 	\end{align*}
 %
 \center
-$\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$, and $\sigma\tau=\{ x\mapsto \ma \}$.
+$\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
 \end{example}
 \end{frame}
 
