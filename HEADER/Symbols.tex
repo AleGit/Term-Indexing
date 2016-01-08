@@ -1,0 +1,141 @@
+% !TEX root = m3talk.tex
+% !TEX encoding = UTF-8 Unicode
+
+%% ==============================================================
+%% ### MISC ###
+
+\newcommand{\EQ}{\simeq}
+\newcommand{\NEQ}{\not\simeq}
+\newcommand{\foEQ}{\approx}		%	{\simeq}
+\newcommand{\foNEQ}{\not\foEQ}
+
+%\newcommand\mytop[2]{\genfrac{}{}{0pt}{}{#1}{#2}}
+%\newcommand{\mygreek}[1]{\selectlanguage{polutonikogreek}#1\selectlanguage{english}}
+%\newcommand{\mygreek}[1]{{\selectlanguage{polutonikogreek}#1}\selectlanguage{english}}
+%\renewcommand{\mygreek}[1]{\foreignlanguage{polutonikogreek}{#1}}
+
+%\newcommand{\iSUB}[2]{#2\!\mapsto\!#1}
+%\newcommand{\BgSyntaxTree}{\usebackgroundtemplate{\transparent{0.1}\includegraphics[width=\paperwidth]{SyntaxTreeBackground.png}}}
+
+\newcommand{\EMPH}[1]{\emph{\textcolor{col:em}{#1}}}
+
+%% ==============================================================
+%% ### MY MATH ENVIRONMENTS ###
+
+\theoremstyle{plain}
+%\newtheorem{theorem}{Theorem}
+%\newtheorem{proposition}{Proposition}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{definition}
+%\newtheorem{definition}{Definition}
+\newtheorem{Conjecture}{Conjecture}
+%\newtheorem*{example}{Example}
+%\newtheorem{algorithm}{Algorithm}
+\newtheorem{procedure}{Procedure}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+%\newtheorem*{note}{Note}
+%\newtheorem{case}{Case}
+
+%% ==============================================================
+%% ### MY MATH DEFINITIONS ###
+
+% math operators
+
+\DeclareMathOperator{\arity}{arity}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\pos}{pos}
+\DeclareMathOperator{\T}{T}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\rng}{rng}
+\DeclareMathOperator{\img}{img}
+\DeclareMathOperator{\mgu}{mgu}
+\DeclareMathOperator{\wgt}{W\!}
+\DeclareMathOperator{\sel}{sel}
+\DeclareMathOperator{\mul}{mul}
+\DeclareMathOperator{\add}{add}
+
+\DeclareMathOperator{\unif}{unifiable}
+\DeclareMathOperator{\inst}{instance}
+\DeclareMathOperator{\gene}{generalization}
+\DeclareMathOperator{\vari}{variant}
+
+% constant (function, predicate) symbols
+
+\newcommand{\mf}{{\mathsf f}}
+\newcommand{\mg}{{\mathsf g}}
+\newcommand{\mh}{{\mathsf h}}
+\newcommand{\ma}{{\mathsf a}}
+\newcommand{\mb}{{\mathsf b}}
+\newcommand{\mc}{{\mathsf c}}
+\newcommand{\md}{{\mathsf d}}
+\newcommand{\mx}{{\mathsf x}}
+\newcommand{\my}{{\mathsf y}}
+\newcommand{\msucc}{{\mathsf s}}
+\newcommand{\mpred}{{\mathsf p}}
+\newcommand{\mA}{{\mathsf A}}
+\newcommand{\mB}{{\mathsf B}}
+\newcommand{\mP}{{\mathsf P}}
+\newcommand{\mQ}{{\mathsf Q}}
+
+% caligraphic symbols
+
+\newcommand{\mcC}{{\mathcal C}}
+\newcommand{\mcD}{{\mathcal D}}
+\newcommand{\mcE}{{\mathcal E}}
+\newcommand{\mcF}{{\mathcal F}}
+\newcommand{\mcM}{{\mathcal M}}
+\newcommand{\mcR}{{\mathcal R}}
+\newcommand{\mcT}{{\mathcal T}}
+\newcommand{\mcV}{{\mathcal V}}
+
+\newcommand{\VAR}{\mcV\mathtt{ar}}
+% fraktal symbols
+
+\newcommand{\mfC}{{\mathfrak C}}
+\newcommand{\mfL}{{\mathfrak L}}
+\newcommand{\mfR}{{\mathfrak R}}
+\newcommand{\mfT}{{\mathfrak T}}
+
+% tt symbols
+
+\newcommand{\mtS}{{\mathtt S}}
+\newcommand{\sgr}{\succ_{\mathsf gr}}
+
+% 
+
+\newcommand{\joins}{\rightarrow^*\cdot^*\!\!\leftarrow}
+\newcommand{\meets}{^*\!\!\leftarrow \cdot \rightarrow^* }
+
+
+\newcommand{\mCP}[1]{\mathsf{CP}(#1)}		% Critical Pair
+\newcommand{\mCPR}{\mCP{\mcR}}		% CP(R)
+
+\newcommand{\MUL}[2]	% multiplication
+{\mf(#1,#2)}			% mul(x,y)
+%{#1\cdot #2}			% x.y
+
+\newcommand{\ADD}[2]	% addition
+{\add(#1,#2)}			% add(x,y)
+%{#1+#2}				% x+y
+
+\newcommand{\MYPOS}[1]{{\tt #1}}
+\newcommand{\overlap}[3]{\langle #1,\MYPOS{#2}, #3 \rangle}
+\newcommand{\overlapN}[4]{{_{\overlap{#1}{#2}{#3}}}^{#4:\;}}
+
+%\newcommand{\GTKBO}{>_{\tt kbo}}
+\newcommand{\GTKBOW}[2]{\texttt{SMT}(#1\!>_\texttt{kbo}\!#2)}
+\newcommand{\GTKBOP}[2]{\texttt{SMT}(#1\!>_\texttt{kbo}'\!#2)}
+
+\newcommand{\UPL}{\infer
+	[(\sigma)
+		\quad\sigma=\mgu(l,l'), l'\!\not\in\mcV, l\sigma\rho\sgr r\sigma\rho
+	]
+	{L[r]\sigma}
+	{l=r & L[l']}	
+}
+
+\newcommand{\emptyclause}{\square}
