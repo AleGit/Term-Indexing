@@ -72,6 +72,7 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 \begin{frame}
 
+\begin{notation}
 \begin{enumerate}
 \item $\Sigma = (\Sigma_\mP, \Sigma_\mf, V )$ \hfill signature
 %\item $P \in \Sigma_\mP = \{ \mA, \mB, \ldots \}$ \hfill predicate symbols 
@@ -79,8 +80,8 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %\item $V = \{ x,y,z, \ldots\} $ \hfill variables
 %\item $C ::=  \lnot \mid \lor \mid {\colG \land \mid\ \rightarrow}$\hfill connectives
 %\item {\colG $Q ::= \forall, \exists$ \hfill quantifiers}
-\item $T ::= V \mid F \mid F ( T,\ldots,T)$\hfill terms
-\item $A ::= P \mid P ( T, \ldots, T ) \mid T \foEQ T$ \hfill atoms, i.e.~predicate terms
+\item $T ::= V \mid F \mid F ( T,\ldots,T)$\hfill term
+\item $A ::= P \mid P ( T, \ldots, T ) \mid T \foEQ T$\hfill  atom
 %\item {\colG $F ::= A \mid (\lnot F) 
 %	\mid (F \lor F)  \mid (F \land F)  
 %	\mid (F \rightarrow F)
@@ -90,20 +91,24 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %	\hfill formulas
 %	
 %	}
-\item $\ell ::= A \mid \lnot A$\hfill literals
-\item $C ::= \emptyclause \mid \ell \mid C \lor \ell$\hfill clauses
-\item $S ::= \emptyset \mid S \cup C$\hfill set of clauses
-
-$\{ C_1, \ldots, C_n \} \equiv \forall\ \mcV(C_1) C_1 \land \ldots \forall\ \mcV(C_1) C_1$
-
-\vspace{1em}
-A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
-and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
+\item $\ell ::= A \mid \lnot A$\hfill literal
+\item $C ::= \emptyclause \mid \ell \mid C \lor \ell$\hfill clause
+\item $S ::= \emptyset \mid S \cup C$\hfill clause set
+\end{enumerate}
+\[
+\{ C_1, \ldots, C_n \} \equiv 
+\forall\ \VAR(C_1) C_1 
+\land \ldots \land
+\forall\ \VAR(C_1) C_n 
+\]
+%A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
+%and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
 
 %\item $S ::= \{ C,\lots,C \}$\hfill sets of clauses
 %\item Formulae $F::=$
 
-\end{enumerate}
+
+\end{notation}
 
 \end{frame}
 \subsection{Saturation-based theorem provers}
@@ -118,8 +123,8 @@ and equivalent to a universally quantified conjunction of variable distinct disj
 	in a sufficient way.
 	\item Stop if 
 	\begin{enumerate}
-	\item a proof for unsatisfiability has been found\hfill{\colG F is a theorem}
-	\item the set is saturated, hence satisfiable\hfill{\colG not a theorem} 
+	\item a proof for unsatisfiability of $S$ has been found\hfill{\colG F is a theorem}
+	\item the set $S$ is saturated, hence satisfiable\hfill{\colG F is not a theorem} 
 	\item time's up or space's out\hfill \colG we don't know
 	\end{enumerate}
 	Otherwise, continue with 2.
@@ -133,14 +138,39 @@ and equivalent to a universally quantified conjunction of variable distinct disj
 \node[diamond, draw=black](Z) {i };
 \end{tikzpicture}}
 
-\begin{tikzpicture}[scale = 2, transform shape]
+\begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, very thick, sloped]
+
 %	\node[state, rectangle](M) {
 %		\begin{tikzpicture}
 %		\node[state](X) { \innerst};
 %		\end{tikzpicture}
 %	};
+
+	\draw[->] (0,0) -- 
+	node[pos=0.1, above] {$F$} 
+	node[pos=0.5, below] {$S\approx\lnot F$} 
+	(4,0);
 	
-	path [->] (0,0) to (4.4);
+	\draw[dashed] (4.9,2) -- (5.9,-2);
+	\draw[dashed] (6.6,2) -- (7.6,-2);
+	
+	\draw (1,3)   rectangle (9.5,-3);
+	\draw (2.4,2.7) node {\color{colG}Is $F$ a theorem?};
+	
+	  \draw (3,-2) rectangle (8,2); 
+	  \draw (4.4,-1.7) node {\color{colG}Is $S$ satisfiable?} (7,2);
+	
+	\draw[->, draw=colHi] (7,1.5) -- 
+	node[pos=0.12,below] {unsat}
+	node[pos=0.82, above] {theorem} (11,1.5) ;
+	
+	\draw[->,draw=colNa] (6.1,0.5) -- 
+	node[pos=0.02,below] {time out}
+	node[pos=0.75, above] {maybe} (11.5,0.5) ;
+	
+	\draw[->,draw=colLo] (3.5,-0.5) -- 
+	node[pos=0.12, below] {satisfiable}
+	node[pos=0.855, above] {not a theorem} (12,-0.5) ;
 \end{tikzpicture}
 
 \end{frame}
