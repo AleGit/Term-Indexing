@@ -99,9 +99,9 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 \end{enumerate}
 \[
 \{ C_1, \ldots, C_n \} \equiv 
-\forall\VAR(C_1) C_1 
+\forall\Var(C_1) C_1 
 \land \ldots \land
-\forall \VAR(C_1) C_n 
+\forall\Var(C_1) C_n 
 \]
 %A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
 %and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
@@ -154,15 +154,20 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 	 % is S satisfaible?
 	 \draw (3.4,-1.9) node {\color{colN}Is $\lnot F \approx S$ satisfiable?};
 	 
-	 \draw[thin,dashed,draw=colO] (2.5,0) circle (0.4); 
-	 \draw[thin,dashed,draw=colO] (2.7,0) circle (0.6); 
-%	   \draw[thin,dashed,draw=colO] (2.9,0) circle (0.8); 
-	  \draw[thin,dashed,draw=colO] (3.1,0) circle (1); 
-%	 \draw[thin,dashed,draw=colO] (3.3,0) circle (1.2); 
-	  \draw[thin,dashed,draw=colO] (3.5,0) circle (1.4); 
+%	 \draw[thin,dashed,draw=colO] (2.5,0) circle (0.4); 
+%	 \draw[thin,dashed,draw=colO] (2.7,0) circle (0.6); 
+%%	   \draw[thin,dashed,draw=colO] (2.9,0) circle (0.8); 
+%	  \draw[thin,dashed,draw=colO] (3.1,0) circle (1); 
+%%	 \draw[thin,dashed,draw=colO] (3.3,0) circle (1.2); 
+%	  \draw[thin,dashed,draw=colO] (3.5,0) circle (1.4); 
 	  
-	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4,-1) -- (8.1,-0.5);
-	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4,0.5) -- (8.1,1);
+	 \draw[thin,dashed,draw=colO] (2.5,0) circle (0.4 and 1.2); 
+	 \draw[thin,dashed,draw=colO] (2.6,0) circle (0.6 and 1.44); 
+	  \draw[thin,dashed,draw=colO] (2.8,0) circle (0.9 and 1.73); 
+	  \draw[thin,dashed,draw=colO] (3.2,0) circle (1.35 and 2.07);
+	  
+	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4,-1) -- (8.1,-0.6);
+	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4, 1) -- (8.1,0.6);
 		
 	\draw[->, draw=colHi] (6.5,1.8) -- 
 	node[pos=0,below] {unsatisfiable}
@@ -170,7 +175,7 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 	(10,1.8) ;
 	
 	\draw[->,draw=colNa] (7,0.15) -- 
-	node[pos=0,above] {space out}
+%	node[pos=0,above] {space out}
 	node[pos=0,below] {time out}
 	node[pos=0.85, above] {maybe} (10.5,0.15) ;
 	
@@ -360,7 +365,7 @@ $pq$ denotes the concatenation of positions.
 %\end{array}
 %\right.
 %\]
-$\pos(t)$ denotes the set of positions in term $t$, and $t|_p$ denotes the subterm of $t$ at positon $p\in\pos(t)$.
+$\Pos(t)$ denotes the set of positions in term $t$, and $t|_p$ denotes the subterm of $t$ at positon $p\in\Pos(t)$.
 \end{definition}
 
 \begin{definition}
