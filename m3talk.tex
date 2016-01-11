@@ -72,16 +72,18 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 \begin{frame}
 
-\begin{notation}
+\begin{notation}[First Order]
 \begin{enumerate}
-\item $\Sigma = (\Sigma_\mP, \Sigma_\mf, V )$ \hfill signature
+\item $\Sigma = (\SIGV, \SIGF, \SIGP)$ \hfill signature
 %\item $P \in \Sigma_\mP = \{ \mA, \mB, \ldots \}$ \hfill predicate symbols 
 %\item $F \in \Sigma_\mf = \{ \mc, \mf,\mg,\ldots \}$ \hfill (constant) function symbols
 %\item $V = \{ x,y,z, \ldots\} $ \hfill variables
 %\item $C ::=  \lnot \mid \lor \mid {\colG \land \mid\ \rightarrow}$\hfill connectives
 %\item {\colG $Q ::= \forall, \exists$ \hfill quantifiers}
-\item $T ::= V \mid F \mid F ( T,\ldots,T)$\hfill term
-\item $A ::= P \mid P ( T, \ldots, T ) \mid T \foEQ T$\hfill  atom
+\item $\SIGT = \SIGV \cup \{ f(t_1,\ldots,t_n)\mid f\in\SIGF_{(n)}, t_i \in \SIGT \}$\hfill terms
+\item $\SIGA = \{ P ( t_1, \ldots, t_n )\mid P\in\SIGP_{(n)}, t_i \in \SIGT\}
+\cup
+\{ s \foEQ t \mid s,t\in \SIGT\}$\hfill  atoms
 %\item {\colG $F ::= A \mid (\lnot F) 
 %	\mid (F \lor F)  \mid (F \land F)  
 %	\mid (F \rightarrow F)
@@ -91,15 +93,15 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %	\hfill formulas
 %	
 %	}
-\item $\ell ::= A \mid \lnot A$\hfill literal
-\item $C ::= \emptyclause \mid \ell \mid C \lor \ell$\hfill clause
-\item $S ::= \emptyset \mid S \cup C$\hfill clause set
+\item $\SIGL = \SIGA \cup \{ \lnot A \mid A\in \SIGA \}$\hfill literals
+\item $\SIGC = 2^\SIGL$, e.g. $\mf(x)\foEQ\ma \lor \ma\foNEQ\mb$\hfill clauses
+\item $\SIGS = 2^\SIGC$, e.g. $\{ \mf(x)\foEQ\ma \lor \ma\foNEQ\mb, \mf(x)\foEQ\mb\}$\hfill clause sets
 \end{enumerate}
 \[
 \{ C_1, \ldots, C_n \} \equiv 
-\forall\ \VAR(C_1) C_1 
+\forall\VAR(C_1) C_1 
 \land \ldots \land
-\forall\ \VAR(C_1) C_n 
+\forall \VAR(C_1) C_n 
 \]
 %A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
 %and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
