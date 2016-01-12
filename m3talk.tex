@@ -136,11 +136,11 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 \begin{frame}
 
-\begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, very thick, sloped]
+\begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, thick, sloped]
 
-	\draw[->] (0,0) -- 
+	\draw[->, ultra thick] (0,0) -- 
 	node[pos=0, above] {$F$} 
-%	node[pos=0.7, below] {$\lnot F$} 
+	node[pos=0.32, below] {\color{colN}$\lnot F \approx\ S$}
 	node[pos=1.25] {$S$} 
 	(2,0);
 		
@@ -152,34 +152,27 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 	% inner rectangle
 	\draw[rounded corners=-1.5mm]  (1.5,-2.25) rectangle (8,2.25); 
 	 % is S satisfaible?
-	 \draw (3.4,-1.9) node {\color{colN}Is $\lnot F \approx S$ satisfiable?};
-	 
-%	 \draw[thin,dashed,draw=colO] (2.5,0) circle (0.4); 
-%	 \draw[thin,dashed,draw=colO] (2.7,0) circle (0.6); 
-%%	   \draw[thin,dashed,draw=colO] (2.9,0) circle (0.8); 
-%	  \draw[thin,dashed,draw=colO] (3.1,0) circle (1); 
-%%	 \draw[thin,dashed,draw=colO] (3.3,0) circle (1.2); 
-%	  \draw[thin,dashed,draw=colO] (3.5,0) circle (1.4); 
+	 \draw (2.9,-1.9) node {\color{colN}Is $S$ satisfiable?};
 	  
-	 \draw[thin,dashed,draw=colO] (2.5,0) circle (0.4 and 1.2); 
-	 \draw[thin,dashed,draw=colO] (2.6,0) circle (0.6 and 1.44); 
-	  \draw[thin,dashed,draw=colO] (2.8,0) circle (0.9 and 1.73); 
-	  \draw[thin,dashed,draw=colO] (3.2,0) circle (1.35 and 2.07);
+	 \draw[thin,dashed,draw=colO] (2.5,0) ellipse (0.4 and 1.2); 
+	 \draw[thin,dashed,draw=colO] (2.6,0) ellipse (0.6 and 1.44); 
+	  \draw[thin,dashed,draw=colO] (2.8,0) ellipse (0.9 and 1.73); 
+	  \draw[thin,dashed,draw=colO] (3.2,0) ellipse (1.35 and 2.07);
 	  
-	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4,-1) -- (8.1,-0.6);
-	\draw[dashed, decoration=snake, decorate,draw=colG] (1.4, 1) -- (8.1,0.6);
+	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4,-1) -- (8.1,-0.6);
+	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4, 1) -- (8.1,0.6);
 		
-	\draw[->, draw=colHi] (6.5,1.8) -- 
+	\draw[->, draw=colHi, ultra thick] (6.5,1.8) -- 
 	node[pos=0,below] {unsatisfiable}
 	node[pos=0.85, above] {theorem} 
 	(10,1.8) ;
 	
-	\draw[->,draw=colNa] (7,0.15) -- 
+	\draw[->,draw=colNa, ultra thick] (7,0.15) -- 
 %	node[pos=0,above] {space out}
 	node[pos=0,below] {time out}
 	node[pos=0.85, above] {maybe} (10.5,0.15) ;
 	
-	\draw[->,draw=colLo] (7,-1.3) -- 
+	\draw[->,draw=colLo, ultra thick] (7,-1.3) -- 
 	node[pos=0, below] {satisfiable}
 	node[pos=0.75, above] {not a theorem} (11,-1.3) ;
 \end{tikzpicture}
@@ -413,26 +406,44 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 
 %======================
 
+
 \begin{frame}
-\frametitle{to do}
-\begin{tikzpicture}[initial text=$\varepsilon$
-% on grid % (positoning)
-]
-\node[initial,state] (1) { a };
-\node[state] (2) [below right of=1]{ b};
-\node[state, accepting] (3) [above right of=1]{c};
-\node[my] (4) at (-2,4) {c};
-%
-\path (1) edge (2) edge [bend right] node [blue,pos=0.1,sloped,below]{ $\mf$} (3)
-edge [out=60, in=60] (3);
-\path (2) edge (3);
-\path (4) edge (3);
-\end{tikzpicture}
+\begin{tikzpicture}
+\node {$\exists $}
+% [clockwise from=-170,sibling angle=-160]
+child {node {$[a,b,c]$}}
+child {node {${\mathsf p}$}
+% [clockwise from=-90,sibling angle=0]
+ child {node {$a$}}};
+     \end{tikzpicture}
+     
+$(\exists [a,b,c]:({\mathsf p}(a)))$
 \end{frame}
 
 \begin{frame}
+${\mathsf f}({\mathsf a},x)$
 
+\begin{tikzpicture}
+\node {${\mathsf f}$}
+child {node {${\mathsf a}$}}
+child {node {$x$}};
+ \end{tikzpicture}
+
+${\mathsf f}({\mathsf a},x)\approx {\mathsf f}(x,{\mathsf a})$
+
+\begin{tikzpicture}
+\node {$\approx $}
+% [clockwise from=-150,sibling angle=-120]
+child {node at (-0.7,1) {${\mathsf f}$}
+ [clockwise from=-130,sibling angle=-80]
+ child {node {${\mathsf a}$}}
+ child {node {$x$}}}
+child {node at (0.7,1){${\mathsf f}$}
+ [clockwise from=-130,sibling angle=-80]
+ child {node {$x$}}
+ child {node {${\mathsf a}$}}};
+ \end{tikzpicture}
 \end{frame}
-
+ 
 \end{document}
 % ********************************
