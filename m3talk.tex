@@ -111,8 +111,9 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 
 \end{notation}
-
 \end{frame}
+
+% === saturation-based theorem provers ===
 \subsection{Saturation-based theorem provers}
 \frame{
 	\frametitle{Saturation-based theorem provers}
@@ -134,11 +135,13 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 	\end{procedure}
 }
 
+% === the big picture === 
 \begin{frame}
 
 \begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, thick, sloped]
 
 	\draw[->, ultra thick] (0,0) -- 
+%	node[pos=0, above] {$\lnot F\approx S$} 
 	node[pos=0, above] {$F$} 
 	node[pos=0.32, below] {\color{colN}$\lnot F \approx\ S$}
 	node[pos=1.25] {$S$} 
@@ -179,66 +182,64 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 \end{frame}
 
-\subsection{Superposition}
-\begin{frame}
+% === Example Superpostition ===
+%\subsection{Superposition}
+%\begin{frame}
+%
+%\begin{example}[Superposition]
+%\vspace{-1em}
+%\begin{gather*}
+%S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+%	{}^{2:}\mh(y)\foEQ y, 
+%	{}^{3:}\mf(\ma)\foNEQ \mc \}\qquad\\[0.5em]
+%\newcommand{\stepA}{
+%	\infer[ \alpha % (S_+)\ \{ y\mapsto x \}
+%	]{	\mf(x)\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
+%	}{	^{2:}\mh(y)\foEQ y
+%		& 
+%		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
+%	}
+%}
+%\newcommand{\stepB}{
+%	\infer[	\beta]
+%	{		{\colNA\mh(\mh(\ma))\foNEQ \ma} \lor \mc\foNEQ\mc
+%	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
+%	}
+%}
+%\newcommand{\stepC}{
+%	\infer[\{\}
+%	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
+%	}{		\stepB
+%	}
+%}
+%\newcommand{\stepD}{
+%	\infer[\gamma
+%	]{	\boxed{\mh(\ma)}\foNEQ\ma
+%	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
+%	}
+%}
+%\newcommand{\stepE}{
+%	\infer[\gamma
+%	]{	\ma\foNEQ\ma
+%	}{	^{2:}\mh(y)\foEQ y & \stepD
+%	}
+%}
+%\newcommand{\stepF}{
+%	\infer[\{\}	%(f)
+%	]{	\emptyclause
+%	}{	\stepE
+%	}
+%}
+%\stepF
+%\end{gather*}
+%\center
+%$\alpha = \{ y\mapsto x \}$, 
+%$\beta=\{ x\mapsto\ma\}$, 
+%$\gamma=\{ y\mapsto\ma\}$ 
+%\end{example}
+%\end{frame}
 
-\begin{example}[Superposition]
-\vspace{-1em}
-\begin{gather*}
-S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
-	{}^{2:}\mh(y)\foEQ y, 
-	{}^{3:}\mf(\ma)\foNEQ \mc \}\qquad\\[0.5em]
-%\{ ^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
-%	^{2:}\mh(y)\foEQ y, 
-%	^{3:}\mf(\ma)\foNEQ \mc \}  \\
-\newcommand{\stepA}{
-	\infer[ \alpha % (S_+)\ \{ y\mapsto x \}
-	]{	\mf(x)\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
-	}{	^{2:}\mh(y)\foEQ y
-		& 
-		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
-	}
-}
-\newcommand{\stepB}{
-	\infer[	\beta]
-	{		{\colNA\mh(\mh(\ma))\foNEQ \ma} \lor \mc\foNEQ\mc
-	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
-	}
-}
-\newcommand{\stepC}{
-	\infer[\{\}
-	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
-	}{		\stepB
-	}
-}
-\newcommand{\stepD}{
-	\infer[\gamma
-	]{	\boxed{\mh(\ma)}\foNEQ\ma
-	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
-	}
-}
-\newcommand{\stepE}{
-	\infer[\gamma
-	]{	\ma\foNEQ\ma
-	}{	^{2:}\mh(y)\foEQ y & \stepD
-	}
-}
-\newcommand{\stepF}{
-	\infer[\{\}	%(f)
-	]{	\emptyclause
-	}{	\stepE
-	}
-}
-\stepF
-\end{gather*}
-\center
-$\alpha = \{ y\mapsto x \}$, 
-$\beta=\{ x\mapsto\ma\}$, 
-$\gamma=\{ y\mapsto\ma\}$ 
-\end{example}
-
-\end{frame}
-
+% === Example Inst-Gen-Eq ===
 \subsection{Inst-Gen-Eq}
 \begin{frame}
 \begin{example}[Inst-Gen-Eq]
@@ -291,29 +292,29 @@ $\gamma=\{ y\mapsto\ma\}$
 $\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
 \end{example}
 
-\begin{remark}
-	Superposition [Bachmair, Ganzinger],
-	InstGenEq (Ganzinger, Korovin) are sound and refutational complete with a \EMPH{fair} strategy.
-	\end{remark}
+%\begin{remark}
+%	Superposition [Bachmair, Ganzinger],
+%	InstGenEq (Ganzinger, Korovin) are sound and refutational complete with a \EMPH{fair} strategy.
+%	\end{remark}
 \end{frame}
 
-\begin{frame}
-\begin{align*}
-S_1 &= \{ 
-	\mf(x,x)\foNEQ a,
-	\mf(y,\mg(y)) \foEQ a,\\
-	&\qquad\mf(x,y)\foNEQ a \lor \mf (y,z)\foNEQ a \lor \mf(x,z)\foEQ a 
-	\}
-	\\
-%S_1\bot &= \mf(\bot,\bot)\foNEQ a,
-%	\mf(\bot,\mg(\bot)) \foEQ a,
-%	\mf(\bot,\bot)\foNEQ a \lor \mf (\bot,\bot)\foNEQ a \lor f(\bot,\bot)\foEQ a \\
-\end{align*}
-\end{frame}
+% === infinite domain ===
 
-\begin{frame}
-$\mf(x,y)\foEQ c, \ldots$
-\end{frame}
+%\begin{frame}
+%\begin{align*}
+%S_1 &= \{ 
+%	\mf(x,x)\foNEQ a,
+%	\mf(y,\mg(y)) \foEQ a,\\
+%	&\qquad\mf(x,y)\foNEQ a \lor \mf (y,z)\foNEQ a \lor \mf(x,z)\foEQ a 
+%	\}
+%	\\
+%%S_1\bot &= \mf(\bot,\bot)\foNEQ a,
+%%	\mf(\bot,\mg(\bot)) \foEQ a,
+%%	\mf(\bot,\bot)\foNEQ a \lor \mf (\bot,\bot)\foNEQ a \lor f(\bot,\bot)\foEQ a \\
+%\end{align*}
+%\end{frame}
+
+% === Term retrieval problems ===
 
 \frame{
 \frametitle{Term retrieval problems}
@@ -330,6 +331,8 @@ $\gene(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$
 \begin{definition}
 \end{definition}
 }
+
+% === Definition Position ===
 
 \subsection{Position}
 \begin{frame}
@@ -372,6 +375,8 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 \end{definition}
 \end{frame}
 
+% === ====
+
 \begin{frame}
 % 4.1 Position strings, 4.1 Defintion
 \begin{definition}
@@ -379,32 +384,34 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 \end{definition}
 \end{frame}
 
-\begin{frame}
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.1cm,
-                    semithick]
-  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+% === state machine ====
 
-  \node[initial,state] (A)                    {$q_a$};
-  \node[state]         (B) [above right of=A] {$q_b$};
-  \node[state]         (D) [below right of=A] {$q_d$};
-  \node[state]         (C) [below right of=B] {$q_c$};
-  \node[state]         (E) [below of=D]       {$q_e$};
+%\begin{frame}
+%\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.1cm,
+%                    semithick]
+%  \tikzstyle{every state}=[fill=red,draw=none,text=white]
+%
+%  \node[initial,state] (A)                    {$q_a$};
+%  \node[state]         (B) [above right of=A] {$q_b$};
+%  \node[state]         (D) [below right of=A] {$q_d$};
+%  \node[state]         (C) [below right of=B] {$q_c$};
+%  \node[state]         (E) [below of=D]       {$q_e$};
+%
+%  \path (A) edge              node {0,1,L} (B)
+%            edge              node {1,1,R} (C)
+%        (B) edge [loop above] node {1,1,L} (B)
+%            edge              node {0,1,L} (C)
+%        (C) edge              node {0,1,L} (D)
+%            edge [bend left]  node {1,0,R} (E)
+%        (D) edge [loop below] node {1,1,R} (D)
+%            edge              node {0,1,R} (A)
+%        (E) edge [bend left]  node {1,0,R} (A);
+%\end{tikzpicture}
+%
+%\href{http://www.texample.net/tikz/examples/state-machine/}{www.texample.net/tikz/examples/state-machine/}
+%\end{frame}
 
-  \path (A) edge              node {0,1,L} (B)
-            edge              node {1,1,R} (C)
-        (B) edge [loop above] node {1,1,L} (B)
-            edge              node {0,1,L} (C)
-        (C) edge              node {0,1,L} (D)
-            edge [bend left]  node {1,0,R} (E)
-        (D) edge [loop below] node {1,1,R} (D)
-            edge              node {0,1,R} (A)
-        (E) edge [bend left]  node {1,0,R} (A);
-\end{tikzpicture}
-
-\href{http://www.texample.net/tikz/examples/state-machine/}{www.texample.net/tikz/examples/state-machine/}
-\end{frame}
-
-%======================
+%=== example forall ===
 
 
 \begin{frame}
