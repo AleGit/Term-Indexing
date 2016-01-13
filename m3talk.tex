@@ -414,24 +414,110 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 %
 %\href{http://www.texample.net/tikz/examples/state-machine/}{www.texample.net/tikz/examples/state-machine/}
 %\end{frame}
+\section{path indexing}
 
 \begin{frame}
 
 \begin{gather*}
+\left\{\begin{array}{lll}
+	\TI{1}\mh(\mf(x,x)), &
+	\TI{2}\mh(\mg(\ma,x)), &
+	\TI{3}\mh(\mf(y,z)), \\
+	\TI{4}\mh(\mg(\ma,y)), &
+	\TI{5}\mh(\mf(y,x)), &
+	\TI{6}\mh(\mg(y,a))
+\end{array}\right\}
+\end{gather*}
+\begin{center}
+\begin{tikzpicture}[->,sloped,above]
+
+\node (root) at (0,2.5) {.};
+
+\node (h) at (1,2.5) {.};
+
+\node (h1) at (2,2.5) {.};
+
+\node (h1f) at (3,4.5) {.};
+\node (h1g) at (3,1.5) {.};
+
+\node (h1f1) at (4,5) {.};
+\node (h1f2) at (4,4) {.};
+\node (h1g1) at (4,2.5) {.};
+\node (h1g2) at (4,0.5) {.};
+
+\node (h1f1x) at (6,5) {\{1,3,5\}};
+\node (h1f2x) at (6,4) {\{1,3,5\}};
+\node (h1g1a) at (6,3) {\{2,4\}};
+\node (h1g1x) at (6,2) {\{6\}};
+\node (h1g2a) at (6,1) {\{6\}};
+\node (h1g2x) at (6,0) {\{2,4\}};
+
+\path (root) edge node {$\mh$} (h)
+	(h) edge node {$1$} (h1)
+	
+	(h1)
+		edge node {$\mf$} (h1f)
+		edge node {$\mg$} (h1g)
+	
+	(h1f)
+		edge node {$1$} (h1f1)
+		edge node {$2$} (h1f2)
+	
+	(h1g)
+		edge node {$1$} (h1g1)
+		edge node {$2$} (h1g2)
+
+	(h1f1)
+		% edge node {$\ma$} (h1f1a)
+		edge node {$*$} (h1f1x)
+		
+	(h1f2)
+%		edge node {$\ma$} (h1f2a)
+		edge node {$*$} (h1f2x)
+		
+
+	(h1g1)
+		edge node {$\ma$} (h1g1a)
+		edge node {$*$} (h1g1x)
+
+	(h1g2) 
+		edge node {$\ma$} (h1g2a)
+		edge node {$*$} (h1g2x)
+;
+\end{tikzpicture}
+\end{center}
+$\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$
+\end{frame}
+
+% === ===
+
+\section{discrimination trees}
+\subsection{non-linear terms and perfect filtering}
+\begin{frame}
+
+\begin{gather*}
+\left\{\begin{array}{lll}
+	\TI{1}\mh(\mf(x,x)), &
+	\TI{2}\mh(\mg(\ma,x)), &
+	\TI{3}\mh(\mf(y,z)), \\
+	\TI{4}\mh(\mg(\ma,y)), &
+	\TI{5}\mh(\mf(y,x)), &
+	\TI{6}\mh(\mg(y,a))
+\end{array}\right\}
+%%
+%		\TI{1}\mh(\mf(x,x)),
+%		\TI{2}\mh(\mg(\ma,x)),
+%		\TI{3}\mh(\mf(y,z)),
+%		\TI{4}\mh(\mg(\ma,y)),
+%		\TI{5}\mh(\mf(y,x)),
+%		\TI{6}\mh(\mg(y,a))
+%%		\\[0.5em]
 %
-		\TI{1}\mh(\mf(x,x)),
-		\TI{2}\mh(\mg(\ma,x)),
-		\TI{3}\mh(\mf(y,z)),
-		\TI{4}\mh(\mg(\ma,y)),
-		\TI{5}\mh(\mf(y,x)),
-		\TI{6}\mh(\mg(y,a))
-		\\[0.5em]
-%
-\ps(t) =
-\begin{cases}
-	* &\text{if $t=x\in\SIGV$} \\
-	\mf.\ps(t_1).\ps(t_2). \cdots.\ps(t_n) &\text{if $t=f(t_1,\ldots,t_n)$}
-	\end{cases}
+%\ps(t) =
+%\begin{cases}
+%	* &\text{if $t=x\in\SIGV$} \\
+%	\mf.\ps(t_1).\ps(t_2). \cdots.\ps(t_n) &\text{if $t=f(t_1,\ldots,t_n)$}
+%	\end{cases}
 %
 \end{gather*}
 %	
@@ -471,7 +557,7 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 	;
 \end{tikzpicture}
 %
-\hspace{1em}
+\hspace{3em}
 %
 % perfect filtering
 \begin{tikzpicture}[->,sloped,above,node distance=1cm]
@@ -508,9 +594,9 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 	(gx) edge node {$\ma$} (gxa)
 	
 	;
-\end{tikzpicture}\\[0.7em]
-%
-$\ps(\mh(\mf(y,x))) = \mh.\mf.{*}.{*}$\hspace{2em}$\ps'(\mh(\mf(y,x))) = \mh.\mf.{*_1}.{*_2}$
+\end{tikzpicture}\\[1em]
+
+$\mh(\mf(y,x)) \mapsto \mh.\mf.{*}.{*}$\hspace{6em}$\mh(\mf(y,x)) \mapsto' \mh.\mf.{*_1}.{*_2}$
 \end{center}
 \end{frame}
 
