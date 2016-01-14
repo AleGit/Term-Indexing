@@ -4,40 +4,40 @@
 \begin{gather*}
 	\infer
 	[\text{unit}\atop\text{paramodulation}]
-	{(L[t])\cdot\mgu(s,s')}
+	{(L[t])\cdot\sigma}
 	{s\foEQ t&L[s']}
-\\\text{
+\\\text{\footnotesize 
 where $\sigma=\mgu(s,s')$,
 $s'\not\in\mcV$,
-$t\sigma\not\succcurlyeq s\sigma$;
-}\\[0.5em]
+$t\sigma\not\succcurlyeq s\sigma$
+}\\[1em]
 %
 	\infer
 	[\text{unit}\atop\text{superposition}]
-	{(u[t]\foNEQ v)\,\sigma}
+	{(u[t]\foNEQ v)\cdot\sigma}
 	{s\foEQ t&u[s']\foNEQ v}
-	\qquad\qquad
+	\hspace{2mm}
 	\infer
-	[(U\!S_+)]
-	{(u[t]\foEQ v)\,\sigma}
+	[]
+	{(u[t]\foEQ v)\cdot\sigma}
 	{s\foEQ t&u[s']\foEQ v}
-\\\text{
+\\\text{\footnotesize 
 where $\sigma=\mgu(s,s')$,
 $s'\not\in\mathcal{V},$
 $t\sigma\not\succcurlyeq s\sigma,$
-$v\sigma\not\succcurlyeq u[s']\sigma$;
-}\\[0.5em]
+$v\sigma\not\succcurlyeq u[s']\sigma$
+}\\[1em]
 %
 	\infer
 	[\text{unit equality}\atop\text{resolution}]
 	{\emptyclause}
 	{s\foNEQ t}
-	\quad\quad\quad\qquad
+	\hspace{4em}
 	\infer
 	[\text{unit}\atop\text{resolution}]
 	{\emptyclause}
 	{A&\lnot B}\\
-\text{
+\text{\footnotesize 
 where $s$ and $t$ ($A$ and $B$ respectively) are unifiable
 }
 \end{gather*}

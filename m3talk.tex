@@ -67,10 +67,10 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 
 \section{Motivation}
 
-%\subsection{Notation}
-%\begin{frame}
-%\input{BLOCKS/NotationClauseLogic}
-%\end{frame}
+\subsection{Notation}
+\begin{frame}
+\input{BLOCKS/NotationClauseLogic}
+\end{frame}
 
 % === saturation-based theorem provers ===
 \subsection{Reductio ad absurdum}
@@ -106,15 +106,40 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 \input{BLOCKS/GoalResolution}
 \begin{exampleblock}{}
 \begin{itemize}
-\item 
-\item Avoid redundancy
+\item \EMPH{Reduce} search space
+\begin{itemize}
+\item Ordered Resolution
+\item \ldots selection functions for clauses and literals
+\end{itemize}
+\item \EMPH{Reduce} redundancy
+\begin{itemize}
+\item Ignore clause $C$, if $C$ subsumes $D$, i.e.~$C\tau \subseteq D$?
+\item \ldots depends on the calculus
+\end{itemize}
 \end{itemize}
 \end{exampleblock}{}
+
+\begin{example}
+\vspace{-1em}
+\begin{gather*}
+S = \{ \TI{t_1}\mP(x,y), \TI{t_2}\lnot \mP(\ma,z), \TI{t_3}\colG\mP(\ma,z') \}
+\tag*{$t_1$ subsumes $t_3$}
+\\[0.7em]
+S\bot = \{ \mP(\bot,\bot), {\colLo\lnot \mP(\ma,\bot), \mP(\ma,\bot)} \}
+\tag*{InstGen/SMT}
+\\[0.7em]
+\infer[\{x\mapsto\ma,y\mapsto z\}]
+{\square}
+{\mP(x,y) & \lnot \mP(\ma,z)}
+\tag*{Resolution}
+\end{gather*}
+\end{example}
 \end{frame}
 
-\begin{frame}
-\input{BLOCKS/definitionSuperpositionCalculus}
-\end{frame}
+
+%\begin{frame}
+%\input{BLOCKS/definitionSuperpositionCalculus}
+%\end{frame}
 
 \begin{frame}
 \input{BLOCKS/definitionInstGenEqCalculus}
