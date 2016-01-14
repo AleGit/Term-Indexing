@@ -4,13 +4,21 @@
 \begin{definition}
 In a given set of terms
 \begin{itemize}
-\item find terms that are variants of a given term.
-$\VRNT(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$ and $\sigma$ is renaming.
-\item find terms that are  instances of a given term.
-$\INST(\ell,t) \Leftrightarrow \exists\sigma\ \ell = t\sigma$
-\item find terms that are  generalizations of a given term.
-$\GNRL(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t$
-\item \EMPH{find terms that are  unifiable with a given term. 
-$\UNIF(\ell,t) \Leftrightarrow \exists\sigma\ \ell\sigma = t\sigma$}
+
+\item find terms that are variants of a given term t
+$\VRNT(s,t)\Leftrightarrow \exists\sigma\ s\sigma = t\text{ and }\sigma\text{ is renaming}$
+
+\item find terms that are  instances of a given term  
+$\INST(s,t)\Leftrightarrow\exists\sigma\ s = t\sigma$
+\hfill{\footnotesize backward subsumption}
+
+\item find terms that are  generalizations of a given term
+$\GNRL(s,t)\Leftrightarrow\exists\sigma\ s\sigma = t$
+\hfill{\footnotesize forward subsumption}
+
+\item \EMPH{find terms that are  unifiable with a given term} 
+$\UNIF(s,t)\Leftrightarrow\exists\sigma\ s\sigma = t\sigma$
+\hfill{\footnotesize resolution}
+
 \end{itemize}
 \end{definition}
