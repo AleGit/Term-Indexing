@@ -1,0 +1,48 @@
+% !TEX root = ../m3talk.tex
+% !TEX encoding = UTF-8 Unicode
+\begin{definition}\label{def:unit-superpositin-calculus}
+The {\EMPH unit superposition calculus} includes 
+\begin{itemize}
+\item unit paramodulation $(U\!P)$
+\begin{gather*}
+	\infer
+	[(U\!P)]
+	{(L[t])\,\sigma}
+	{s\foEQ t&L[s']}
+\end{gather*}
+where $\sigma=\mgu(s,s')$ is defined,
+$s'\not\in\mcV$,
+$t\sigma\not\succcurlyeq s\sigma$;
+%
+\item unit superposition $(U\!S_-,U\!S_+)$
+\begin{gather*}
+	\infer
+	[(U\!S_-)]
+	{(u[t]\foNEQ v)\,\sigma}
+	{s\foEQ t&u[s']\foNEQ v}
+	\qquad\qquad
+	\infer
+	[(U\!S_+)]
+	{(u[t]\foEQ v)\,\sigma}
+	{s\foEQ t&u[s']\foEQ v}
+\end{gather*}
+where $\sigma=\mgu(s,s')$ is defined,
+$s'\not\in\mathcal{V},$
+$t\sigma\not\succcurlyeq s\sigma,$
+$v\sigma\not\succcurlyeq u[s']\sigma$;
+%
+\item unit equality resolution $(U\!R_\foEQ)$, and unit resolution $(U\!R)$
+\begin{gather*}
+	\infer
+	[(U\!R_\foEQ)]
+	{\emptyclause}
+	{s\foNEQ t}
+	\quad\quad\quad\qquad
+	\infer
+	[(U\!R)]
+	{\emptyclause}
+	{A&\lnot B}
+\end{gather*}
+where $s$ and $t$ ($A$ and $B$ respectively) are unifiable.
+\end{itemize}
+\end{definition}

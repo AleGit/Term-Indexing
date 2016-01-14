@@ -1,0 +1,29 @@
+% !TEX root = ../m3talk.tex
+% !TEX encoding = UTF-8 Unicode
+% p.1860, 2.1 Definition
+% 703811, p.26, 2.1.14
+\begin{definition}
+A position is a sequence of positive integers.
+The empty sequence $\varepsilon$ denotes the root position,
+$pq$ denotes the concatenation of positions. 
+%$p$ and $q$,
+%The set of positions is recursively defined: 
+%\[
+%\pos(t)=\left\{ 
+%\begin{array}{ll}
+%	\{ \varepsilon \} & \text{if }t\text{ is variable}\\
+%	\{ \varepsilon \} \cup \{ ip\mid 1\leq i\leq n \land p \in \pos(t_i) \} & \text{if }t=\mf(t_1,\ldots,t_n)
+%\end{array}
+%\right.
+%\]
+%The subterm of $t$ at position $p\in\pos(t)$ is defined:
+%\[
+%t|_p = \left\{
+%\begin{array}{ll}
+%	t & \text{if }p=\varepsilon\\
+%	t_i|_q & \text{if }t=\mf(t_1,\ldots,t_n) \text{ and } p=iq
+%\end{array}
+%\right.
+%\]
+$\Pos(t)$ denotes the set of positions in term $t$, and $t|_p$ denotes the subterm of $t$ at positon $p\in\Pos(t)$.
+\end{definition}
