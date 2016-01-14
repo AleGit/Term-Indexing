@@ -4,16 +4,16 @@
 % Ordered Resolution (R), Ordered Factoring (F)
 \begin{gather*}
 	\infer
-	[{ordered\atop resolution}]
-	{(\mcC \lor \mcD)\mgu(A,B)}
+	[\text{ordered}\atop\text{resolution}]
+	{(\mcC \lor \mcD)\cdot\mgu(A,B)}
 	{{\colSmx A} \lor\mcC & {\colMax \lnot B} \lor\mcD}
 \hspace{1cm}
 	\infer
-	[{ordered \atop factoring}]
-	{(A \lor \mcC)\mgu(A,B)}
+	[\text{ordered}\atop\text{factoring}]
+	{(A \lor \mcC)\cdot\mgu(A,B)}
 	{{\colMax A}\lor B'\lor\mcC}
 %where
-%$\sigma=\mgu(A,B)$ is defined, 
+%$\sigma=\cdot\mgu(A,B)$ is defined, 
 %$A\sigma$ {\colSmx is strictly maximal} in $\mcC\sigma$,
 %$\lnot B\sigma$ {\colMax is maximal} in $\mcD\sigma$, 
 %$A\sigma$ is maximal in $\mcD\sigma$;
@@ -22,32 +22,32 @@
 %\[
 \\[0.7em]
 	\infer
-	[{ordered\atop paramodulation}]
-	{(\mcC\lor \lnot A[t]\lor\mcD)\,\mgu(s,s')}
+	[\text{ordered}\atop\text{paramodulation}]
+	{(\mcC\lor \lnot A[t]\lor\mcD)\,\cdot\mgu(s,s')}
 	{{\colSmx s\foEQ t} \lor\mcC\quad {\colMax \lnot A[s']}\lor\mcD}
 \hspace{2mm}
 	\infer
 	[]
-	{(\mcC\lor A[t]\lor\mcD)\,\mgu(s,s')}
+	{(\mcC\lor A[t]\lor\mcD)\,\cdot\mgu(s,s')}
 	{{\colSmx s\foEQ t} \lor\mcC\quad {\colSmx A[s']}\lor\mcD}
-%where $\sigma=\mgu(s,s')$ is defined, 
+%where $\sigma=\cdot\mgu(s,s')$ is defined, 
 %$(s\foEQ t)\sigma$ {\colSmx is strictly maximal} in $\mcC\sigma$, 
 %$\lnot A[s']$ {\colMax is maximal} in $\mcD\sigma$,
-%$A[s']$ {\colSmx is strictly maximal} in $\mcD\sigma$;
+%\\A[s'] \text{\colSmx is strictly maximal in} \mcD\sigma;
 %%
 \\[0.7em]
 	\infer
-	[{\atop superposition}]
-	{(\mcC\lor u[t]\foNEQ v\lor\mcD)\,\mgu(s,s')}
+	[\text{super-}\atop\text{position}]
+	{(\mcC\lor u[t]\foNEQ v\lor\mcD)\,\cdot\mgu(s,s')}
 	{{\colSmx s\foEQ t}\lor\mcC\quad {\colMax u[s']\foNEQ v}\lor\mcD}
 \hspace{2mm}
 	\infer
 	[]
-	{(\mcC\lor u[t]\foEQ v\lor\mcD)\,\mgu(s,s')}
+	{(\mcC\lor u[t]\foEQ v\lor\mcD)\,\cdot\mgu(s,s')}
 	{{\colSmx s\foEQ t}\lor\mcC\quad {\colSmx u[s']\foEQ v}\lor\mcD}
 %\]
 %%
-%where $\sigma=\mgu(s,s')$ is defined,
+%where $\sigma=\cdot\mgu(s,s')$ is defined,
 %$s'\not\in\mcV$, 
 %$t\sigma\NGTPREQ s\sigma$,
 %$v\sigma\NGTPREQ u[s']\sigma$;
@@ -57,16 +57,17 @@
 % and equality factoring $(F_\foEQ)$
 \\[0.7em]
 	\infer
-	[{equality\atop resolution}]
-	{\mcC\mgu(s,s')}
+	[\text{equality}\atop\text{resolution}]
+	{\mcC\cdot\mgu(s,s')}
 	{{\colSmx s\foNEQ s'}\lor\mcC}
 \hspace{1cm}
 	\infer
-	[{equality\atop factoring}]
-	{(v\foNEQ s'\lor u\foEQ s'\lor\mcC)\mgu(s,s')}
+	[\text{equality}\atop\text{factoring}]
+	{(v\foNEQ s'\lor u\foEQ s'\lor\mcC)\cdot\mgu(s,s')}
 	{{s\foEQ s'}\lor {\colMax u\foEQ v}\lor\mcC}
 %where 
-%$\sigma=\mgu(s,s')$ is defined,
+%$\sigma=\cdot\mgu(s,s')$ is defined,
 %$(s=s')\sigma\NGTPREQ(u\foEQ v)$.
+\\[1em]\text{where literals $\ell\cdot\mgu(.,.)$ are {\colSmx strictly} {\colMax maximal}}
 \end{gather*}
 \end{exampleblock}
