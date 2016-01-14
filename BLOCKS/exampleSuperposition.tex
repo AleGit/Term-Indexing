@@ -1,0 +1,51 @@
+\begin{example}[Superposition]
+\vspace{-1em}
+\begin{gather*}
+S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+	{}^{2:}\mh(y)\foEQ y, 
+	{}^{3:}\mf(\ma)\foNEQ \mc \}\qquad\\[0.5em]
+\newcommand{\stepA}{
+	\infer[ \alpha % (S_+)\ \{ y\mapsto x \}
+	]{	\mf(x)\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
+	}{	^{2:}\mh(y)\foEQ y
+		& 
+		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
+	}
+}
+\newcommand{\stepB}{
+	\infer[	\beta]
+	{		{\colNA\mh(\mh(\ma))\foNEQ \ma} \lor \mc\foNEQ\mc
+	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
+	}
+}
+\newcommand{\stepC}{
+	\infer[\{\}
+	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
+	}{		\stepB
+	}
+}
+\newcommand{\stepD}{
+	\infer[\gamma
+	]{	\boxed{\mh(\ma)}\foNEQ\ma
+	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
+	}
+}
+\newcommand{\stepE}{
+	\infer[\gamma
+	]{	\ma\foNEQ\ma
+	}{	^{2:}\mh(y)\foEQ y & \stepD
+	}
+}
+\newcommand{\stepF}{
+	\infer[\{\}	%(f)
+	]{	\emptyclause
+	}{	\stepE
+	}
+}
+\stepF
+\end{gather*}
+\center
+$\alpha = \{ y\mapsto x \}$, 
+$\beta=\{ x\mapsto\ma\}$, 
+$\gamma=\{ y\mapsto\ma\}$ 
+\end{example}

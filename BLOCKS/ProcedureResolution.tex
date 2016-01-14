@@ -1,0 +1,20 @@
+	\begin{procedure}	
+	\begin{enumerate}
+	\item Transform the negation of a conjecture $F$
+	
+	into a equisatisfiable set of clauses $S$.
+	\item Expand $S$ with derived clauses 
+	in a sufficient$^{\circ\diamond\star}$ way.
+	\item Stop if 
+	\begin{enumerate}
+	\item a proof for unsatisfiability of $S$ has been found\hfill{\colHi F is a theorem}
+	\item {\colG the set $S$ is saturated, hence satisfiable}\hfill{\colG F is not a theorem} 
+	\item time's up or space's out\hfill \colG we don't know
+	\end{enumerate}
+	Otherwise, continue with 2.
+	\end{enumerate}
+	\end{procedure}
+	
+
+	
+%The resolution rule can be traced back to Davis and Putnam (1960);[1] however, their algorithm required to try all ground instances of the given formula. This source of combinatorial explosion was eliminated in 1965 by John Alan Robinson's syntactical unification algorithm, which allowed one to instantiate the formula during the proof "on demand" just as far as needed to keep refutation completeness.[2]

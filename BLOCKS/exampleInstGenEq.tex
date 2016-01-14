@@ -1,0 +1,49 @@
+\begin{example}[Inst-Gen-Eq]
+%
+\vspace{-1em}
+%
+\newcommand{\inferFXC}{
+		\infer[ \sigma]
+		{ \mf(x)\foEQ\mc }
+		{ ^{2^\ell:}\mh(y)\foEQ y & ^{1^\ell:}\mf(\boxed{\mh(x)})\foEQ\mc} 	
+	}
+	\newcommand{\inferCnC}{
+		\infer[ \tau ]
+		{ \emptyclause }
+		{ \inferFXC & ^{3^\ell:}\mf(\ma)\foNEQ \mc } 		
+	}
+%
+	\begin{align*}
+	S_0 &= \{ ^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
+	^{2:}\mh(y)\foEQ y, 
+	^{3:}\mf(\ma)\foNEQ \mc \} 
+	\\
+	S_0\bot &= \{ 
+	{\colHi\mf(\mh(\bot))\foEQ\mc} \lor 
+	{\colNA\mh(\mh(\bot))\foNEQ \ma}, 
+	{\colHi\mh(\bot)\foEQ\bot}, 
+	{\colHi\mf(\ma)\foNEQ\mc} 
+	\} 
+\\
+	&
+	{\inferCnC
+	} 
+\\
+	S_1 &= \{ \ldots, 
+		\mf(\ma)\foNEQ\mc, 
+		^{2\sigma\tau:}{\colN\mf(\mh(\ma))\foEQ\mc \lor \mh(\mh(\ma))\foNEQ \ma}, 
+		^{3\tau:}{\colN\mh(\ma)\foEQ\ma}
+	\} 
+\\
+	S_1\bot &=
+ 	\{ \ldots,
+		{\colHi\mf(\ma)\foNEQ \mc}, 
+ 		{\colLo \mf(\mh(\ma))\foEQ\mc
+		\lor\mh(\mh(\ma))\foNEQ \ma}, 
+		{\colHi\mh(\ma)\foEQ\ma} 
+	\} 
+	\end{align*}
+%
+\center
+$\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
+\end{example}

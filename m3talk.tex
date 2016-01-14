@@ -66,257 +66,53 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %\input{xy}
 
 \section{Motivation}
-\subsection{Notion}
 
-\subsection{First Order Clause Logic}
-
-\begin{frame}
-
-\begin{notation}[First Order]
-\begin{enumerate}
-\item $\Sigma = (\SIGV, \SIGF, \SIGP)$ \hfill signature
-%\item $P \in \Sigma_\mP = \{ \mA, \mB, \ldots \}$ \hfill predicate symbols 
-%\item $F \in \Sigma_\mf = \{ \mc, \mf,\mg,\ldots \}$ \hfill (constant) function symbols
-%\item $V = \{ x,y,z, \ldots\} $ \hfill variables
-%\item $C ::=  \lnot \mid \lor \mid {\colG \land \mid\ \rightarrow}$\hfill connectives
-%\item {\colG $Q ::= \forall, \exists$ \hfill quantifiers}
-\item $\SIGT = \SIGV \cup \{ f(t_1,\ldots,t_n)\mid f\in\SIGF_{(n)}, t_i \in \SIGT \}$\hfill terms
-\item $\SIGA = \{ P ( t_1, \ldots, t_n )\mid P\in\SIGP_{(n)}, t_i \in \SIGT\}
-\cup
-\{ s \foEQ t \mid s,t\in \SIGT\}$\hfill  atoms
-%\item {\colG $F ::= A \mid (\lnot F) 
-%	\mid (F \lor F)  \mid (F \land F)  
-%	\mid (F \rightarrow F)
-%	\mid (\forall F)
-%	\mid (\exists F) 
-%	$ 
-%	\hfill formulas
-%	
-%	}
-\item $\SIGL = \SIGA \cup \{ \lnot A \mid A\in \SIGA \}$\hfill literals
-\item $\SIGC = 2^\SIGL$, e.g. $\mf(x)\foEQ\ma \lor \ma\foNEQ\mb$\hfill clauses
-\item $\SIGS = 2^\SIGC$, e.g. $\{ \mf(x)\foEQ\ma \lor \ma\foNEQ\mb, \mf(x)\foEQ\mb\}$\hfill clause sets
-\end{enumerate}
-\[
-\{ C_1, \ldots, C_n \} \equiv 
-\forall\Var(C_1) C_1 
-\land \ldots \land
-\forall\Var(C_1) C_n 
-\]
-%A set of clauses is equivalent to a conjunction of universally quantified disjunctions of literals
-%and equivalent to a universally quantified conjunction of variable distinct disjunctions of literals.
-
-%\item $S ::= \{ C,\lots,C \}$\hfill sets of clauses
-%\item Formulae $F::=$
-
-
-\end{notation}
-\end{frame}
+%\subsection{Notation}
+%\begin{frame}
+%\input{BLOCKS/NotationClauseLogic}
+%\end{frame}
 
 % === saturation-based theorem provers ===
-\subsection{Resolution-based theorem provers}
-\frame{
-	\frametitle{Resolution-based theorem provers}
-	\begin{procedure}	
-	\begin{enumerate}
-	\item Transform the negation of a conjecture $F$
-	
-	into a equisatisfiable set of clauses $S$.
-	\item Expand $S$ with derived clauses 
-	in a sufficient$^{\circ\diamond\star}$ way.
-	\item Stop if 
-	\begin{enumerate}
-	\item a proof for unsatisfiability of $S$ has been found\hfill{\colG F is a theorem}
-	\item the set $S$ is saturated, hence satisfiable\hfill{\colG F is not a theorem} 
-	\item time's up or space's out\hfill \colG we don't know
-	\end{enumerate}
-	Otherwise, continue with 2.
-	\end{enumerate}
-	\end{procedure}
-	
-	\begin{goal}[]
-	Sound$^\circ$, refutational complete$^\diamond$, and effective$^\star$ procedure.
-	\end{goal}
-}
+\subsection{Reductio ad absurdum}
+%\begin{frame}\frametitle{Resolution}
+%\input{BLOCKS/ProcedureResolution}
+%\input{BLOCKS/GoalResolution}
+%\end{frame}
 
 % === the big picture === 
 \begin{frame}
-
-\begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, thick, sloped]
-
-	\draw[->, ultra thick] (0,0) -- 
-%	node[pos=0, above] {$\lnot F\approx S$} 
-	node[pos=0, above] {$F$} 
-	node[pos=0.32, below] {\color{colN}$\lnot F \approx\ S$}
-	node[pos=1.25] {$S$} 
-	(2,0);
-		
-	% outer rectangle
-	\draw[rounded corners=-1.5mm] (1,3) rectangle (8.5,-3);
-	% is F a theorem?
-	\draw(2.4,2.7) node {\color{colN}Is $F$ a theorem?};
-	
-	% inner rectangle
-	\draw[rounded corners=-1.5mm]  (1.5,-2.25) rectangle (8,2.25); 
-	 % is S satisfaible?
-	 \draw (2.9,-1.9) node {\color{colN}Is $S$ satisfiable?};
-	  
-	 \draw[thin,dashed,draw=colO] (2.5,0) ellipse (0.4 and 1.2); 
-	 \draw[thin,dashed,draw=colO] (2.6,0) ellipse (0.6 and 1.44); 
-	  \draw[thin,dashed,draw=colO] (2.8,0) ellipse (0.9 and 1.73); 
-	  \draw[thin,dashed,draw=colO] (3.2,0) ellipse (1.35 and 2.07);
-	  
-	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4,-1) -- (8.1,-0.6);
-	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4, 1) -- (8.1,0.6);
-		
-	\draw[->, draw=colHi, ultra thick] (6.5,1.8) -- 
-	node[pos=0,below] {unsatisfiable}
-	node[pos=0.85, above] {theorem} 
-	(10,1.8) ;
-	
-	\draw[->,draw=colNa, ultra thick] (7,0.15) -- 
-%	node[pos=0,above] {space out}
-	node[pos=0,below] {time out}
-	node[pos=0.85, above] {maybe} (10.5,0.15) ;
-	
-	\draw[->,draw=colLo, ultra thick] (7,-1.3) -- 
-	node[pos=0, below] {satisfiable}
-	node[pos=0.75, above] {not a theorem} (11,-1.3) ;
-\end{tikzpicture}
-
+\frametitle{Resolution}
+\input{BLOCKS/TikzResolution}
+\input{BLOCKS/GoalResolution}
 \end{frame}
 
 % === Example Superpostition ===
 %\subsection{Superposition}
 %\begin{frame}
-%
-%\begin{example}[Superposition]
-%\vspace{-1em}
-%\begin{gather*}
-%S = \{ {}^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
-%	{}^{2:}\mh(y)\foEQ y, 
-%	{}^{3:}\mf(\ma)\foNEQ \mc \}\qquad\\[0.5em]
-%\newcommand{\stepA}{
-%	\infer[ \alpha % (S_+)\ \{ y\mapsto x \}
-%	]{	\mf(x)\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
-%	}{	^{2:}\mh(y)\foEQ y
-%		& 
-%		^{1:}\mf(\boxed{\mh(x)})\foEQ\mc \lor {\colNA\mh(\mh(x))\foNEQ \ma}
-%	}
-%}
-%\newcommand{\stepB}{
-%	\infer[	\beta]
-%	{		{\colNA\mh(\mh(\ma))\foNEQ \ma} \lor \mc\foNEQ\mc
-%	}{		\stepA & ^{3:}\boxed{\mf(\ma)}\foNEQ \mc
-%	}
-%}
-%\newcommand{\stepC}{
-%	\infer[\{\}
-%	]{		\mh(\boxed{\mh(\ma)})\foNEQ \ma
-%	}{		\stepB
-%	}
-%}
-%\newcommand{\stepD}{
-%	\infer[\gamma
-%	]{	\boxed{\mh(\ma)}\foNEQ\ma
-%	}{	^{2:}\mh(y)\foEQ y\hspace{-3cm} & \stepC
-%	}
-%}
-%\newcommand{\stepE}{
-%	\infer[\gamma
-%	]{	\ma\foNEQ\ma
-%	}{	^{2:}\mh(y)\foEQ y & \stepD
-%	}
-%}
-%\newcommand{\stepF}{
-%	\infer[\{\}	%(f)
-%	]{	\emptyclause
-%	}{	\stepE
-%	}
-%}
-%\stepF
-%\end{gather*}
-%\center
-%$\alpha = \{ y\mapsto x \}$, 
-%$\beta=\{ x\mapsto\ma\}$, 
-%$\gamma=\{ y\mapsto\ma\}$ 
-%\end{example}
+%\input{BLOCKS/ExampleSuperposition}
 %\end{frame}
 
 % === Example Inst-Gen-Eq ===
-\subsection{Inst-Gen-Eq}
-\begin{frame}
-\begin{example}[Inst-Gen-Eq]
-%
-\vspace{-1em}
-%
-\newcommand{\inferFXC}{
-		\infer[ \sigma]
-		{ \mf(x)\foEQ\mc }
-		{ ^{2^\ell:}\mh(y)\foEQ y & ^{1^\ell:}\mf(\boxed{\mh(x)})\foEQ\mc} 	
-	}
-	\newcommand{\inferCnC}{
-		\infer[ \tau ]
-		{ \emptyclause }
-		{ \inferFXC & ^{3^\ell:}\mf(\ma)\foNEQ \mc } 		
-	}
-%
-	\begin{align*}
-	S_0 &= \{ ^{1:}\mf(\mh(x))\foEQ\mc \lor \mh(\mh(x))\foNEQ \ma, 
-	^{2:}\mh(y)\foEQ y, 
-	^{3:}\mf(\ma)\foNEQ \mc \} 
-	\\
-	S_0\bot &= \{ 
-	{\colHI\mf(\mh(\bot))\foEQ\mc} \lor 
-	{\colNA\mh(\mh(\bot))\foNEQ \ma}, 
-	{\colHI\mh(\bot)\foEQ\bot}, 
-	{\colHI\mf(\ma)\foNEQ\mc} 
-	\} 
-\\
-	&
-	{\inferCnC
-	} 
-\\
-	S_1 &= \{ \ldots, 
-		\mf(\ma)\foNEQ\mc, 
-		^{2\sigma\tau:}{\colN\mf(\mh(\ma))\foEQ\mc \lor \mh(\mh(\ma))\foNEQ \ma}, 
-		^{3\tau:}{\colN\mh(\ma)\foEQ\ma}
-	\} 
-\\
-	S_1\bot &=
- 	\{ \ldots,
-		{\colHI\mf(\ma)\foNEQ \mc}, 
- 		{\colLO \mf(\mh(\ma))\foEQ\mc
-		\lor\mh(\mh(\ma))\foNEQ \ma}, 
-		{\colHI\mh(\ma)\foEQ\ma} 
-	\} 
-	\end{align*}
-%
-\center
-$\sigma=\{ y\mapsto x \}$, $\tau=\{ x\mapsto \ma \}$
-\end{example}
+%\subsection{Inst-Gen-Eq}
+%\begin{frame}
+%\input{BLOCKS/ExampleInstGenEq}
+%\end{frame}
 
 %\begin{remark}
 %	Superposition [Bachmair, Ganzinger],
 %	InstGenEq (Ganzinger, Korovin) are sound and refutational complete with a \EMPH{fair} strategy.
 %	\end{remark}
-\end{frame}
 
-% === infinite domain ===
-
+% === example infinite domain ===
 %\begin{frame}
-%\begin{align*}
-%S_1 &= \{ 
-%	\mf(x,x)\foNEQ a,
-%	\mf(y,\mg(y)) \foEQ a,\\
-%	&\qquad\mf(x,y)\foNEQ a \lor \mf (y,z)\foNEQ a \lor \mf(x,z)\foEQ a 
-%	\}
-%	\\
-%%S_1\bot &= \mf(\bot,\bot)\foNEQ a,
-%%	\mf(\bot,\mg(\bot)) \foEQ a,
-%%	\mf(\bot,\bot)\foNEQ a \lor \mf (\bot,\bot)\foNEQ a \lor f(\bot,\bot)\foEQ a \\
-%\end{align*}
+%\input{BLOCKS/exampleInfiniteDomain}
 %\end{frame}
+
+\begin{frame}
+
+\input{BLOCKS/GoalResolution}
+
+\end{frame}
 
 % === Term retrieval problems ===
 
@@ -419,15 +215,16 @@ if $p_i$ is a proper prefix of $p_j$ then $i<j$
 \begin{frame}
 
 \begin{gather*}
-\left\{\begin{array}{lll}
-	\TI{1}\mh(\mf(x,x)), &
-	\TI{2}\mh(\mg(\ma,x)), &
-	\TI{3}\mh(\mf(y,z)), \\
-	\TI{4}\mh(\mg(\ma,y)), &
-	\TI{5}\mh(\mf(y,x)), &
+\{
+	\TI{1}\mh(\mf(x,x)),
+	\TI{2}\mh(\mg(\ma,x)), 
+	\TI{3}\mh(\mf(y,z))
+	\TI{4}\mh(\mg(\ma,y)), 
+	\TI{5}\mh(\mf(y,x)), 
 	\TI{6}\mh(\mg(y,a))
-\end{array}\right\}
+\}
 \end{gather*}
+%
 \begin{center}
 \begin{tikzpicture}[->,sloped,above]
 
@@ -493,36 +290,50 @@ $\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$
 \subsection{subterm indexing}
 \begin{frame}
 
+\begin{gather*}
+\{
+	\TI{1}\mh(\mf(x,x)),
+	\TI{2}\mh(\mg(\ma,x)), 
+	\TI{3}\mh(\mf(y,z))
+	\TI{4}\mh(\mg(\ma,y)), 
+	\TI{5}\mh(\mf(y,x)), 
+	\TI{6}\mh(\mg(y,a))
+\}
+\end{gather*}
+%
 \begin{center}
 \begin{tikzpicture}[->,sloped,above]
-
 \node (root) at (0,2.5) {$\bullet$};
-
+%% right
 \node (h) at (1,2.5) {.};
-
+%
 \node (h1) at (2,2.5) {.};
-
+%
 \node (h1f) at (3,4.5) {.};
 \node (h1g) at (3,1.5) {.};
-
+%
 \node (h1f1) at (4,5) {.};
 \node (h1f2) at (4,4) {.};
 \node (h1g1) at (4,2.5) {.};
 \node (h1g2) at (4,0.5) {.};
-
+%
 \node (h1f1x) at (6,5) {$\{1,3,5\}$};
 \node (h1f2x) at (6,4) {$\{1,3,5\}$};
 \node (h1g1a) at (6,3) {$\{2,4\}$};
 \node (h1g1x) at (6,2) {$\{6\}$};
-\node (h1g2a) at (6,1) {$4\{6\}$};
+\node (h1g2a) at (6,1) {$\{6\}$};
 \node (h1g2x) at (6,0) {$\{2,4\}$};
-
-\node (f) at (0,1) {.};
-\node (f1) at (-1,0) {.};
-\node (f2) at (1,0) {.};
-\node (g) at (0,4) {.};
-\node (g1) at (-1,5) {.};
-\node (g2) at (1,5) {.};
+%% down
+\node (f) at (0,1.5) {.};
+\node (f1) at (-1,1.3) {.};
+\node (f1x) at (-1,0) {$\{1^{1},3^{1},5^{1}\}$};
+\node (f2) at (1,1.3) {.};
+\node (f2x) at (1,0) {$\{1^{1},3^{1},5^{1}\}$};
+%% up
+\node (g) at (0,3.5) {.};
+\node (g1) at (-1,4) {.};
+\node (g2) at (1,4) {.};
+%% left
 \node (a) at (-3,2.5) {$\{2^{1.1}, 4^{1.1}, 6^{1.2}\}$};
 
 \path 
@@ -563,11 +374,14 @@ $\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$
 		edge node {$*$} (h1g2x)
 		
 %
-	(g) 	edge (g1)
-		edge (g2)
+	(g) 	edge node {$1$} (g1)
+		edge node {$2$} (g2)
 		
-	(f)	edge (f1)
-		edge (f2)
+	(f)	edge node {$1$} (f1)
+		edge node {$2$} (f2)
+		
+	(f1)	edge node {$x$} (f1x)
+	(f2)	edge node {$x$} (f2x)
 ;
 
 
