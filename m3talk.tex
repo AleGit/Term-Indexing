@@ -68,84 +68,10 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 %\input{xy}
 
 \section{Motivation}
-
-\subsection{Notation}
-\begin{frame}
-\input{BLOCKS/NotationClauseLogic}
-\end{frame}
-
-% === saturation-based theorem provers ===
-\subsection{Reductio ad absurdum}
-%\begin{frame}\frametitle{Resolution}
-%\input{BLOCKS/ProcedureResolution}
-%\input{BLOCKS/GoalResolution}
-%\end{frame}
-
-% === the big picture === 
-\begin{frame}
-\frametitle{Resolution}
-\input{BLOCKS/TikzResolution}
-\end{frame}
-
-% === Example Superpostition ===
-%\subsection{Superposition}
-%\begin{frame}
-%\input{BLOCKS/ExampleSuperposition}
-%\end{frame}
-
-% === Example Inst-Gen-Eq ===
-%\subsection{Inst-Gen-Eq}
-%\begin{frame}
-%\input{BLOCKS/ExampleInstGenEq}
-%\end{frame}
-
-% === Example Infinite Domain ===
-%\begin{frame}
-%\input{BLOCKS/exampleInfiniteDomain}
-%\end{frame}
-
-\begin{frame}
-\input{BLOCKS/GoalResolution}
-\begin{exampleblock}{}
-\begin{itemize}
-\item \EMPH{Reduce} search space
-\begin{itemize}
-\item e.g. Ordered Resolution
-\item \ldots selection functions for clauses and literals
-\end{itemize}
-\item \EMPH{Reduce} redundancy
-\begin{itemize}
-\item Ignore clause $D$, if $C$ subsumes $D$, i.e.~$C\tau \subseteq D$?
-\item \ldots depends on the calculus
-\end{itemize}
-\end{itemize}
-\end{exampleblock}{}
-
-\begin{example}
-\vspace{-1em}
-\begin{gather*}
-S = \{ \TI{1}\mP(x,y), \TI{2}\lnot \mP(\ma,z)\} \cup \{\TI{3}\colG\mP(\ma,z') \}
-\tag*{$t_1$ subsumes $t_3$}
-\\[0.7em]
-S\bot = \{ \mP(\bot,\bot), {\colLo\lnot \mP(\ma,\bot), \mP(\ma,\bot)} \}
-\tag*{InstGen/SMT}
-\\[0.7em]
-\infer[\{x\mapsto\ma,y\mapsto z\}]
-{\square}
-{\mP(x,y) & \lnot \mP(\ma,z)}
-\tag*{Resolution}
-\end{gather*}
-\end{example}
-\end{frame}
+\include{Motivation}
 
 
-%\begin{frame}
-%\input{BLOCKS/definitionSuperpositionCalculus}
-%\end{frame}
 
-\begin{frame}
-\input{BLOCKS/definitionInstGenEqCalculus}
-\end{frame}
 
 
 % === Term retrieval problems ===
@@ -327,7 +253,7 @@ $t|_{1.1} = \ma$
 ;
 \end{tikzpicture}
 \end{center}
-$\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$
+$\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$
 \end{frame}
 
 % === ===
