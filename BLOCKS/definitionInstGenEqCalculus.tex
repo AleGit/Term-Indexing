@@ -1,9 +1,10 @@
 % !TEX root = ../m3talk.tex
 % !TEX encoding = UTF-8 Unicode
-\begin{exampleblock}{unit superposition inference rules}
+
+     \begin{exampleblock}{Unit Superposition Inference Rules}
 \begin{gather*}
 	\infer
-	[\text{unit}\atop\text{paramodulation}]
+	[\TOPTEXT{unit}{paramodulation}]
 	{(L[t])\cdot\sigma}
 	{s\foEQ t&L[s']}
 \\\text{\footnotesize 
@@ -13,7 +14,7 @@ $t\sigma\not\succcurlyeq s\sigma$
 }\\[1em]
 %
 	\infer
-	[\text{unit}\atop\text{superposition}]
+	[\TOPTEXT{unit}{superposition}]
 	{(u[t]\foNEQ v)\cdot\sigma}
 	{s\foEQ t&u[s']\foNEQ v}
 	\hspace{2mm}
@@ -29,12 +30,12 @@ $v\sigma\not\succcurlyeq u[s']\sigma$
 }\\[1em]
 %
 	\infer
-	[\text{unit equality}\atop\text{resolution}]
+	[\TOPTEXT{unit equality}{resolution}]
 	{\emptyclause}
 	{s\foNEQ t}
 	\hspace{4em}
 	\infer
-	[\text{unit}\atop\text{resolution}]
+	[\TOPTEXT{unit}{resolution}]
 	{\emptyclause}
 	{A&\lnot B}\\
 \text{\footnotesize 

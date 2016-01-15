@@ -1,5 +1,6 @@
 % !TEX root = ../m3talk.tex
 % !TEX encoding = UTF-8 Unicode
+
 \begin{tikzpicture}[scale = 1, transform shape, draw=black, fill=black, thick, sloped]
 
 	\draw[->, ultra thick] (0,0) -- 
@@ -24,8 +25,11 @@
 	  \draw[thin,dashed,draw=colO] (2.8,0) ellipse (0.9 and 1.73); 
 	  \draw[thin,dashed,draw=colO] (3.2,0) ellipse (1.35 and 2.07);
 	  
-	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4,-1) -- (8.1,-0.6);
-	\draw[dashed, decoration=snake, decorate,draw=colG, thick] (1.4, 1) -- (8.1,0.6);
+%	\draw[dashed, draw=colG, thick, decorate, decoration=snake]  (1.4,-1)  --  (8.1,-0.6);
+%	\draw[dashed, draw=colG, thick, decorate, decoration=snake]] (1.4, 1) -- (8.1,0.6);
+	
+		\draw[dashed, draw=colG, thick]  decorate[decoration={snake}] { (1.4,-1)  --  (8.2,-0.6) };
+		\draw[dashed, draw=colG, thick] decorate[decoration={snake}] {(1.4, 1) -- (8.2,0.6)};
 		
 	\draw[->, draw=colHi, ultra thick] (6.5,1.8) -- 
 	node[pos=0,below] {unsatisfiable}
