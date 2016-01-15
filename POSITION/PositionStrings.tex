@@ -1,0 +1,47 @@
+% !TEX root = ../m3talk.tex
+% !TEX encoding = UTF-8 Unicode
+
+\begin{frame}
+\frametitle{Position-Strings}
+\begin{exampleblock}{Positions of a term}
+$
+	\Pos(t) =  
+	\begin{cases}
+		\{ \epsilon \} & \text{if }t=x\in\SIGV \\
+		\{ \epsilon \} \cup \{ ip\mid 1\leq i\leq n \land p\in\Pos(t_i)\} &
+		\text{if }t=f(t_1,\ldots,t_n)
+	\end{cases}
+$
+\end{exampleblock}
+
+\begin{exampleblock}{$\mh(\mf(\ma,y))$}
+\begin{minipage}[c]{3cm}
+\begin{tikzpicture}[->,right]
+\node (root) at (0.1,0) {};
+\node (h) at (0,-1) {$\mh$};
+\node (hf) at (0,-2) {$\mf$};
+\node (hfa) at (-1,-3) {$\ma$};
+\node (hfy) at (1,-3) {$\my$};
+\node (bottom) at (1,-4) {};
+
+\path (root) edge node{$\epsilon$} (h)
+	 (h) edge node {1} (hf)
+	(hf) 
+		edge node[above,sloped] {1} (hfa)
+		edge node[above,sloped] {2} (hfy) 
+;
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}[b]{8cm}
+\begin{align*}
+\Pos(\mh(\mf(\ma,\my))) &= \{ \epsilon, 1, 1.1, 1.2 \}
+\\
+\mh(\mf(\ma,\my))|_{1.2} &= y
+\end{align*}
+%\newcommand{\ANGLES}[1]{#1}
+%$\ANGLES{\espsilon,\mh}\ANGLES{1,\mf}\ANGLES{1.1,\ma}\ANGLES{1.2,y}$
+%
+%$\ANGLES{1.1,\ma}\ANGLES{1,\mf}\ANGLES{1.2,y}\ANGLES{\espsilon,\mh}$%
+\end{minipage}
+\end{exampleblock}
+\end{frame}
