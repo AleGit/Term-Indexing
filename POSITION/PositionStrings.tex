@@ -14,34 +14,40 @@ $
 $
 \end{exampleblock}
 
+%
+
 \begin{exampleblock}{$\mh(\mf(\ma,y))$}
 \begin{minipage}[c]{3cm}
 \begin{tikzpicture}[->,right]
-\node (root) at (0.1,0) {};
-\node (h) at (0,-1) {$\mh$};
-\node (hf) at (0,-2) {$\mf$};
-\node (hfa) at (-1,-3) {$\ma$};
-\node (hfy) at (1,-3) {$\my$};
-\node (bottom) at (1,-4) {};
-
-\path (root) edge node{$\epsilon$} (h)
-	 (h) edge node {1} (hf)
+\node (h) at (0,-1) {$\ANGLES{\epsilon,\mh}$};
+\node (hf) at (0,-2) {$\ANGLES{1,\mf}$};
+\node (hfa) at (-1,-3) {$\ANGLES{11,\ma}$};
+\node (hfy) at (1,-3) {$\ANGLES{12,\my}$};
+%
+\path 
+	 (h) edge (hf)
 	(hf) 
-		edge node[above,sloped] {1} (hfa)
-		edge node[above,sloped] {2} (hfy) 
+		edge (hfa)
+		edge (hfy) 
 ;
 \end{tikzpicture}
 \end{minipage}
-\begin{minipage}[b]{8cm}
-\begin{align*}
-\Pos(\mh(\mf(\ma,\my))) &= \{ \epsilon, 1, 1.1, 1.2 \}
-\\
-\mh(\mf(\ma,\my))|_{1.2} &= y
-\end{align*}
-%\newcommand{\ANGLES}[1]{#1}
-%$\ANGLES{\espsilon,\mh}\ANGLES{1,\mf}\ANGLES{1.1,\ma}\ANGLES{1.2,y}$
 %
-%$\ANGLES{1.1,\ma}\ANGLES{1,\mf}\ANGLES{1.2,y}\ANGLES{\espsilon,\mh}$%
+\begin{minipage}[c]{8cm}
+\begin{align*}
+\Pos(\mh(\mf(\ma,\my))) &= \{ \epsilon, 1, 11, 12 \}
+\\
+\mh(\mf(\ma,\my))|_{12} &= y
+\\[1em]
+\text{path to }y &\quad 
+\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{12,y}
+\\
+\text{pre-order} &\quad
+\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
+\\
+\end{align*}
+%
+%%
 \end{minipage}
 \end{exampleblock}
 \end{frame}
