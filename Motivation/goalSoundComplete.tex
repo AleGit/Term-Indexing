@@ -7,7 +7,7 @@
 	\END
 	
 	\BEGINX
-		Apply resolution and factoring
+		Apply resolution and factoring until the empty clause is derived 
 		\begin{gather*}
 			\infer
 			[(\sigma)\text{ R}]
@@ -20,9 +20,9 @@
 			{{A}\lor B\lor\mcC} \\[0.7em]
 			\sigma = \mgu(A,B)
 		\end{gather*}
-		eventually on all clauses and literals until the empty clause is derived.
+		on all clauses and literals eventually.
 	\ENDX
 	
 	\BEGIN{Observation}
-		Search space grows too fast.
+		Many useless derivations are produced and search space grows too fast.
 	\END
