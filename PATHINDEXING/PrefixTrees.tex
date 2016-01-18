@@ -1,0 +1,74 @@
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\begin{gather*}
+	\{
+	\TI{1}\mh(\mf(x,x)),
+	\TI{2}\mh(\mg(\ma,x)), 
+	\TI{3}\mh(\mf(y,z))
+	\TI{4}\mh(\mg(\ma,y)), 
+	\TI{5}\mh(\mf(y,x)), 
+	\TI{6}\mh(\mg(y,a))
+	\}
+\end{gather*}
+%
+\begin{center}
+	\begin{tikzpicture}[->,sloped,above]
+	
+	\node (root) at (0,2.5) {.};
+	
+	\node (h) at (1,2.5) {.};
+	
+	\node (h1) at (2,2.5) {.};
+	
+	\node (h1f) at (3,4.5) {.};
+	\node (h1g) at (3,1.5) {.};
+	
+	\node (h1f1) at (4,5) {.};
+	\node (h1f2) at (4,4) {.};
+	\node (h1g1) at (4,2.5) {.};
+	\node (h1g2) at (4,0.5) {.};
+	
+	\node (h1f1x) at (6,5) {\{1,3,5\}};
+	\node (h1f2x) at (6,4) {\{1,3,5\}};
+	\node (h1g1a) at (6,3) {\{2,4\}};
+	\node (h1g1x) at (6,2) {\{6\}};
+	\node (h1g2a) at (6,1) {\{6\}};
+	\node (h1g2x) at (6,0) {\{2,4\}};
+	
+	\path (root) edge node {$\mh$} (h)
+	(h) edge node {$1$} (h1)
+	
+	(h1)
+	edge node {$\mf$} (h1f)
+	edge node {$\mg$} (h1g)
+	
+	(h1f)
+	edge node {$1$} (h1f1)
+	edge node {$2$} (h1f2)
+	
+	(h1g)
+	edge node {$1$} (h1g1)
+	edge node {$2$} (h1g2)
+	
+	(h1f1)
+	% edge node {$\ma$} (h1f1a)
+	edge node {$*$} (h1f1x)
+	
+	(h1f2)
+	%		edge node {$\ma$} (h1f2a)
+	edge node {$*$} (h1f2x)
+	
+	
+	(h1g1)
+	edge node {$\ma$} (h1g1a)
+	edge node {$*$} (h1g1x)
+	
+	(h1g2) 
+	edge node {$\ma$} (h1g2a)
+	edge node {$*$} (h1g2x)
+	;
+	\end{tikzpicture}
+\end{center}
+$\mh(\mg(y,x)) \mapsto \{ \mh.1.\mg.1.{*}, \mh.1.\mg.2.{*} \}$

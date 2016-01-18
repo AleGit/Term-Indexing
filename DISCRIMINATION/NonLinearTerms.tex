@@ -1,0 +1,58 @@
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+
+
+	\def\dw{1}
+	\def\dh{1}
+	\begin{exampleblock}{}
+	\begin{minipage}{4.5cm}
+		
+	\begin{tikzpicture}[->,right]
+	
+	\node (root) at (1.2,0) {.};
+	\node (f) at (1.2,-1) {.};
+	\node (fh) at (0.2,-2) {.};
+	\node (fha) at (0.25,-3) {.};
+	\node (fhaa) at (-1,-4) {1};
+	\node (fhah) at (1,-4) {.};
+	\node (fhaha) at (1,-5) {2};
+	
+	\node (fx) at (2.2,-2) {.};
+	\node (fxy) at (2.2,-3) {3};
+	
+	\path 
+		(root) 
+			edge[colHi] node {$\mf$} (f)
+		(f) edge[sloped,above] node {$\mh$} (fh)
+			edge[sloped,above,colHi] node {${*}$} (fx)
+			edge[bend left,dashed,left,colHi] (fha)
+		(fh) edge node {$\ma$} (fha)
+		
+			
+		(fha) edge[sloped,above] node {$\ma$} (fhaa)
+		 edge[sloped,above] node {$\mh$} (fhah)
+		 edge[bend left,dashed,right,colLo] (fhaa) 
+		 edge[bend right,dashed,left,colHi]  (fhaha) 
+		 
+		 (fhah) edge node {$\ma$} (fhaha)
+		 
+		 (fx) edge[colHi]  node {${*}$} (fxy)
+		;
+
+	\end{tikzpicture}
+	
+	\end{minipage}
+	\begin{minipage}{7cm}
+		$
+		\{\TI{1}\mf(\mh(\ma),\ma), 
+		\TI{2}\mf(\mh(\ma),\mh(\ma))\},
+		\TI{3}\mf(x,y) \}
+		$\\[0.7em]
+		
+	The  terms $\mf(x,y)$ and $\mf(z,z)$\\ 
+	share the preorder-term $\mf{*}{*}$.\\[0.7em]
+	But $\mf(\mh(\ma),\ma)$ is not an instance of $\mf(z,z)$.
+\end{minipage}
+\end{exampleblock}
