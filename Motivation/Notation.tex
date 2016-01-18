@@ -1,5 +1,5 @@
-%% !TEX root = ../m3talk.tex
-%% !TEX encoding = UTF-8 Unicode
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8 Unicode
 % Notation First Order Clause Logic
 %\begin{notation}[First Order Logic]
 %\begin{itemize}
@@ -35,7 +35,7 @@
 %
 %
 %\end{notation}
-\begin{notation}
+\BEGINX{}
 	\vspace{-1em}
 \begin{align*}
  \Sigma = &\ (\SIGV, \SIGF, \SIGP) 						
@@ -59,7 +59,7 @@
 %  &\ \{ s\foEQ t \mid s,t \in \SIGT \}
 %  \tag*{first-order equations}
 %  \\
-\SIGA = &\ \{ s\foEQ t, P ( t_1, \ldots, t_n )\mid P\in\SIGP, s,t,t_i \in \SIGT\}
+\SIGA = &\ \{ A, B, \ldots\} \subset \{ s\foEQ t, P ( t_1, \ldots, t_n )\mid P\in\SIGP, s,t,t_i \in \SIGT\}
 \tag*{atoms}
 %\SIGL &= \SIGA \cup \{ \lnot A \mid A\in \SIGA \}\tag*{literals}\\
 \\
@@ -77,7 +77,7 @@
 %\\
 %&\ \text{clausal forms are sets of clauses}
 \end{align*}
-\end{notation}
+\ENDX
 
 %\begin{exampleblock}{}
 %\center$
