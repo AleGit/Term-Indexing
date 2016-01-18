@@ -1,9 +1,10 @@
-% !TEX root = ../m3talk.tex
-% !TEX encoding = UTF-8 Unicode
+% !TeX spellcheck = en_US
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
 
 \begin{frame}
 \frametitle{Position-Strings}
-\begin{exampleblock}{Positions of a term}
+\begin{exampleblock}{Positions in a term}
 $
 	\Pos(t) =  
 	\begin{cases}
@@ -39,11 +40,15 @@ $
 \\
 \mh(\mf(\ma,\my))|_{12} &= y \tag*{$\ANGLES{12,y}$}
 \\[1em]
-\text{path to }y &\quad 
 \ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{12,y}
+&\quad 
+\text{path to leaf} 
+\tag{$\mh 1 \mf 2 y$}
 \\
-\text{pre-order} &\quad
 \ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
+&\quad
+\text{pre-order} 
+\tag{$\mh \mf \ma y$}
 \\
 \end{align*}
 %
