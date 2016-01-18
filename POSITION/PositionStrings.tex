@@ -4,7 +4,7 @@
 
 \begin{frame}
 \frametitle{Position-Strings}
-\begin{exampleblock}{Positions in a term}
+\begin{exampleblock}{Positions of a term}
 $
 	\Pos(t) =  
 	\begin{cases}
@@ -17,7 +17,8 @@ $
 
 %
 
-\begin{exampleblock}{$\mh(\mf(\ma,y))$}
+\begin{exampleblock}{Traversals of $\mh(\mf(\ma,y))$}
+	\vspace{-1em}
 \begin{minipage}[c]{3.1cm}
 \begin{tikzpicture}[->,right]
 \node (h) at (0,-1) {$\ANGLES{\epsilon,\mh}$};
@@ -42,14 +43,13 @@ $
 \\[1em]
 \ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{12,y}
 &\quad 
-\text{path to leaf} 
+\text{root to leaf $y$} 
 \tag{$\mh 1 \mf 2 y$}
 \\
 \ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
 &\quad
 \text{pre-order} 
 \tag{$\mh \mf \ma y$}
-\\
 \end{align*}
 %
 %%

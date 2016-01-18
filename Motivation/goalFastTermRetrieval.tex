@@ -1,0 +1,43 @@
+% !TeX spellcheck = en_US
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+
+
+\begin{goal}
+	A sound, refutation complete, and \EMPH{effective} calculus.\\[0.5em]
+	\begin{enumerate}
+		\setcounter{enumi}{2}
+		\item Quickly find
+\begin{itemize}
+
+\item \EMPH{variants} \hfill{\colG\footnotesize variant removal}
+%
+
+\item \EMPH{instances}   \hfill{\colG\footnotesize backward subsumption}\\
+%$\INST(s,t)\Leftrightarrow\exists\sigma\ s = t\sigma$
+
+\item \EMPH{generalizations}  \hfill{\colG\footnotesize forward subsumption}\\
+%$\GNRL(s,t)\Leftrightarrow\exists\sigma\ s\sigma = t$
+
+\item \EMPH{unifiable terms} \hfill{\colG\footnotesize resolution, etc.}\\
+%$\UNIF(s,t)\Leftrightarrow\exists\sigma\ s\sigma = t\sigma$
+
+\end{itemize}
+of a query term in a given set of terms.
+\end{enumerate}
+
+\end{goal}
+
+%\begin{definition}
+%	\vspace{-1em}
+%	\begin{align*}
+%	\VRNT(s,t)&\Leftrightarrow \exists\sigma\ s\sigma = t\text{ and }\sigma\text{ is renaming}\\
+%	\INST(s,t)&\Leftrightarrow\exists\sigma\ s = t\sigma\tag*{\colG$s$ is instance of $t$}\\
+%	\GNRL(s,t)&\Leftrightarrow\exists\sigma\ s\sigma = t\tag*{\colG$s$ is generalization of $t$}\\
+%	\UNIF(s,t)&\Leftrightarrow\exists\sigma\ s\sigma = t\sigma
+%	\end{align*}
+%	\end{definition}
+
+	\begin{exampleblock}{Observation}
+		Deduction rate drops quickly with linear search.
+	\end{exampleblock}

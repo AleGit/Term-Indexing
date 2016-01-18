@@ -1,0 +1,28 @@
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+	\begin{goal}
+		A sound and refutation complete calculus.
+	\end{goal}
+	
+	\begin{example}
+		Apply resolution and factoring
+		\begin{gather*}
+			\infer
+			[(\sigma)\text{ R}]
+			{(\mcC \lor \mcD)\sigma}
+			{{A} \lor\mcC & {\lnot B} \lor\mcD}
+			\hspace{1cm}
+			\infer
+			[(\sigma)\text{ F}]
+			{(A \lor \mcC)\sigma}
+			{{A}\lor B\lor\mcC} \\[0.7em]
+			\sigma = \mgu(A,B)
+		\end{gather*}
+		eventually on all clauses and literals until the empty clause is derived.
+	\end{example}
+	
+	\begin{exampleblock}{Observation}
+		Search space grows too fast.
+	\end{exampleblock}
