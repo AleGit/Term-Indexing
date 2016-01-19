@@ -4,25 +4,39 @@
 
 
 	
-	\begin{block}{Forget variable names}
+	\begin{block}{Forget}
 		\vspace{-1em}
 	\begin{align*}
-		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}\\
-			\mf(x,x)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}\\
+		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}
+%		\tag*{$\{\mf.1.{*}, \mf.2.{*}\}$}
+		\\
+		\mf(x,x)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}
+%		\tag*{$\{\mf.1.{*}, \mf.2.{*}\}$}
+		\\
 		\text{pre-order}:
-		\mf(x,y) &\mapsto \mf {*} {*} \\
+		\mf(x,y) &\mapsto \mf {*} {*}
+%		\tag*{$\mf.{*}.{*}$}
+		\\
 		\mf(x,x) &\mapsto \mf {*} {*}
+%		\tag*{$\mf.{*}.{*}$}
 			\end{align*}
 			\end{block}
 %	
 
-\begin{block}{Enumerate variable names}
+\begin{block}{Enumerate}
 	\vspace{-1em}	
 	\begin{align*}
-		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {*_1}, \mf 2 {*_2} \}\\
-		\mf(x,x)  &\mapsto \{ \mf 1 {*_1}, \mf 2 {*_1} \}\\
+		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {*_1}, \mf 2 {*_2}  \}
+%		\tag*{$\{\mf.1.{*1}, \mf.2.{*2}\}$}
+		\\
+		\mf(x,x)  &\mapsto \{ \mf 1 {*_1}, \mf 2 {*_1} \}
+%		\tag*{$\{\mf.1.{*1}, \mf.2.{*1}\}$}
+		\\
 		\text{pre-order}:
-		\mf(x,y) &\mapsto \mf {*_1} {*_2} \\
+		\mf(x,y) &\mapsto \mf {*_1} {*_2}
+%		\tag*{$\mf.{*1}.{*2}$}
+		\\
 		\mf(x,x) &\mapsto \mf {*_1} {*_1}
+%		\tag*{$\mf.{*1}.{*1}$}
 	\end{align*}
 	\end{block}
