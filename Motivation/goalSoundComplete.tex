@@ -6,16 +6,16 @@
 		A sound and refutation complete calculus.
 	\end{goal}
 	
-	\begin{block}{First-order resolution}
+	\begin{block}{Resolution (without equality)}
 		Resolve and factor all clauses and literals in an unsatisfiable set. 
 		\begin{gather*}
 			\infer
-			[(\sigma)\text{ R}]
+			[(\sigma)\text{ resolution}]
 			{(\mcC \lor \mcD)\sigma}
 			{{A} \lor\mcC & {\lnot B} \lor\mcD}
 			\hspace{1cm}
 			\infer
-			[(\sigma)\text{ F}]
+			[(\sigma)\text{ factoring}]
 			{(A \lor \mcC)\sigma}
 			{{A}\lor B\lor\mcC} \\[0.7em]
 			\sigma = \mgu(A,B)
