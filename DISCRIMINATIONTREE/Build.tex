@@ -9,18 +9,18 @@
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index}
 		
-		\path[colLo] 
-		(root) edge[bend left]  (P)
-		(P) edge[bend left]  (Pf)
-		(Pf) edge[bend left] node {$*$} (Pfx)
-		(Pfx) edge node {$*$} (Pfxx);
+		\path[colHi, bend right] 
+		(root) edge  (P)
+		(P) edge  (Pf)
+		(Pf) edge node {$*$} (Pfx)
+		(Pfx) edge node[bend right=0] {$*$} (Pfxx);
 		
-		\path[colHi] 
-		(root) edge[bend right] (P)
-		(P) edge[bend right]  (Pf)
-		(Pf) edge[bend right] node {$*$} (Pfx)
-		(Pfx) edge node {$\mh$} (Pfxh)
-		(Pfxh) edge node {$\ma$} (Pfxha);
+		\path[colLo, bend left] 
+		(root) edge (P)
+		(P) edge  (Pf)
+		(Pf) edge node {$*$} (Pfx)
+		(Pfx) edge[bend left=0] node {$\mh$} (Pfxh)
+		(Pfxh) edge[bend left=0] node {$\ma$} (Pfxha);
 		
 		\path[colG]
 		(root) edge node {$\mP$} (P)

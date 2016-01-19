@@ -7,7 +7,7 @@
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index} 
 			
-			\path[dotted]
+			\path[]
 			(root) edge node {$\mP$} (P)
 			(P) edge node {$\mf$} (Pf)
 			(Pf) edge node {$\mh$} (Pfh)
@@ -20,6 +20,11 @@
 			
 			(Pfxh) edge node {$\ma$} (Pfxha)
 			;
+			
+			\path[dotted,bend right]
+			(Pf) edge (Pfha)
+			(Pfx) edge (Pfxha)
+			;
 		\end{tikzpicture}
 	\end{minipage}
 	%
@@ -27,7 +32,11 @@
 		\begin{align*}
 			\TI{1}\mP(\mf(x,y)) \\
 			\TI{2}\mP(\mf(x),\mh(\ma)))\\
-			\TI{3}\mP(\mf(\mh(\ma)),\ma)
+			\TI{3}\mP(\mf(\mh(\ma)),\ma) \\
+			\\
+			u: \mP(\mf(x',y'))&\mapsto 
 		\end{align*}
+		
+		
 	\end{minipage}
 \end{block}

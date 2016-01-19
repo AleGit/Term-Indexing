@@ -1,7 +1,6 @@
 \node (root) at (0,0) {.};
 \node (P) at (0,-1) {.};
 \node (Pf) at (-1,-2) {.};
-\node (Pg) at (1,-2) {.};
 
 \node (Pfx) at (-2,-3) {.};
 \node (Pfxx) at (-3,-4) {.};
@@ -13,11 +12,11 @@
 \node (Pfha) at (0,-4) {.};
 \node (Pfhaa) at (0,-5) {.};
 
-\node (2) at (-3,-4.2) {\scriptsize$2$};
-\node (1) at (-1,-5.2) {\scriptsize$1$};
+\node (1) at (-3,-4.2) {\scriptsize$1$};
+\node (2) at (-1,-5.2) {\scriptsize$2$};
 \node (3) at (0,-5.2) {\scriptsize$3$};
 
-\path[dotted,gray] 
-	(root) edge (-1,-1)
-		edge (1,-1)
-	(P) edge node {$\mg$} (Pg);
+\path[dashed,lightgray] 
+	(root) edge (-1.5,-1)
+		edge (1.5,-1)
+	(P) edge (1,-2);
