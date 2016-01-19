@@ -7,7 +7,7 @@
 	\end{goal}
 	
 	\begin{block}{First-order resolution}
-		Apply resolution and factoring until the empty clause is derived 
+		Resolve and factor all clauses and literals in an unsatisfiable set. 
 		\begin{gather*}
 			\infer
 			[(\sigma)\text{ R}]
@@ -20,9 +20,9 @@
 			{{A}\lor B\lor\mcC} \\[0.7em]
 			\sigma = \mgu(A,B)
 		\end{gather*}
-		on all clauses and literals eventually.
+		Eventually the empty clause will be derived.
 	\end{block}
 	
 	\begin{observation}
-		Many useless derivations are produced and search space grows too fast.
+		Usually the set grows too fast to obtain a result.
 	\end{observation}
