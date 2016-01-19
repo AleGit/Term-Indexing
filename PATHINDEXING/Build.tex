@@ -1,0 +1,107 @@
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\def\pyL{-0.3}
+\def\pxL{-0.0}
+\begin{tikzpicture}[->]
+
+\node (12) at (\pxL,\pyL) {\scriptsize$1,2$};
+\node (12) at (\pxL+1,\pyL) {\scriptsize$3,4$};
+\node (12) at (\pxL+2,\pyL) {\scriptsize$1,3$};
+\node (12) at (\pxL+3,\pyL) {\scriptsize$2,4$};
+\node (12) at (\pxL+4,\pyL) {\scriptsize$\dots$};
+\node (12) at (\pxL+5,\pyL) {\scriptsize$\dots$};
+
+\node (h1f1x) at (0,0) {.};
+\node (h1f1a) at (1,0) {.};
+\node (h1f2x) at (2,0) {.};
+\node (h1f2a) at (3,0) {.};
+\node (h1g1x) at (4,0) {.};
+\node (h1g2x) at (5,0) {.};
+
+\node (h1f1) at (0.5,1) {.};
+\node (h1f2) at (2.5,1) {.};
+\node (h1g1) at (4,1) {.};
+\node (h1g2) at (5,1) {.};
+
+\node (h1f) at (1.5,2) {.};
+\node (h1g) at (4.5,2) {.};
+
+\node (h1) at (3,3) {.};
+
+\node (h) at (3,4) {.};
+
+\node (root) at (3,5) {.};
+
+\path[dotted,lightgrey] 
+(root)  edge node[black] {$\mh$} (h)
+(h)  edge node[black]  {$1$} (h1)
+(h1)  edge[] node[black]  {$\mf$} (h1f)
+(h1)	edge[] node[black]  {$\mg$} (h1g)
+(h1f)  edge node[black]  {$1$} (h1f1)
+(h1f)  edge node[black]  {$2$} (h1f2)
+(h1g)  edge node[black]  {$1$} (h1g1)
+(h1g)  edge node[black]  {$2$} (h1g2)
+(h1f1)  edge node[black]  {$\ma$} (h1f1a)
+(h1f1)  edge node[black]  {$$} (h1f1x)
+(h1f2)  edge node[black]  {$\ma$} (h1f2a)
+(h1f2) edge node[black]  {$$} (h1f2x)
+(h1g1)  edge node[black]  {$$} (h1g1x)
+(h1g2)  edge node[black]  {$$} (h1g2x)
+;
+
+\path[dashed,red]
+(root) edge (h)
+(h) edge (h1)
+(h1) edge (h1f)
+(h1f) edge (h1f1)
+(h1f1) edge (h1f1x)
+;
+
+%\path[dashed,blue]
+%(root) edge (h)
+%(h) edge (h1)
+%(h1) edge (h1f)
+%(h1f) edge (h1f1)
+%(h1f1) edge (h1f1a)
+%;
+%
+%\path[dashed,red]
+%(root) edge (h)
+%(h) edge (h1)
+%(h1) edge (h1f)
+%(h1f) edge (h1f2)
+%(h1f2) edge (h1f2x)
+%;
+%
+%\path[dashed,blue]
+%(root) edge (h)
+%(h) edge (h1)
+%(h1) edge (h1f)
+%(h1f) edge (h1f2)
+%(h1f2) edge (h1f2a)
+%;
+%
+%\path[dashed,red]
+%(root) edge (h)
+%(h) edge (h1)
+%(h1) edge (h1g)
+%(h1g) edge (h1g1)
+%(h1g1) edge (h1g1x)
+%;
+%
+%\path[dashed,blue]
+%(root) edge (h)
+%(h) edge (h1)
+%(h1) edge (h1g)
+%(h1g) edge (h1g2)
+%(h1g2) edge (h1g2x)
+%;
+
+
+
+
+
+
+\end{tikzpicture}
