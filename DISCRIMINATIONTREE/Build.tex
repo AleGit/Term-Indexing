@@ -2,4 +2,41 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
-hi!
+\begin{block}{Insert}
+	\begin{minipage}{\textwidth/2}
+		\def\pyL{-0.3}
+		\def\pxL{-0.0}
+		\begin{tikzpicture}[->]
+		\input{DISCRIMINATIONTREE/Index}
+		
+		\path[colLo] 
+		(root) edge[bend left]  (P)
+		(P) edge[bend left]  (Pf)
+		(Pf) edge[bend left] node {$*$} (Pfx)
+		(Pfx) edge node {$*$} (Pfxx);
+		
+		\path[colHi] 
+		(root) edge[bend right] (P)
+		(P) edge[bend right]  (Pf)
+		(Pf) edge[bend right] node {$*$} (Pfx)
+		(Pfx) edge node {$\mh$} (Pfxh)
+		(Pfxh) edge node {$\ma$} (Pfxha);
+		
+		\path[colG]
+		(root) edge node {$\mP$} (P)
+		(P) edge node {$\mf$} (Pf)
+		(Pf) edge node {$\mh$} (Pfh)
+		(Pfh) edge node {$\ma$} (Pfha)
+		(Pfha) edge node {$\ma$} (Pfhaa)
+		;
+		\end{tikzpicture}
+	\end{minipage}
+	%
+	\begin{minipage}{\textwidth/2-2em}
+		\begin{gather*}
+			\colHi\TI{1}\mP(\mf(x,y)) \\
+			\colLo\TI{2}\mP(\mf(x),\mh(\ma)))\\
+			\colG\TI{3}\mP(\mf(\mh(\ma)),\ma)
+		\end{gather*}
+	\end{minipage}
+\end{block}

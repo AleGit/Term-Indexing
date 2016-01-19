@@ -1,0 +1,33 @@
+% !TeX root = m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\begin{block}{Retrieve}
+	\begin{minipage}{\textwidth/2}
+		\begin{tikzpicture}[->]
+		\input{DISCRIMINATIONTREE/Index} 
+			
+			\path[dotted]
+			(root) edge node {$\mP$} (P)
+			(P) edge node {$\mf$} (Pf)
+			(Pf) edge node {$\mh$} (Pfh)
+				edge node {$*$}(Pfx)
+			(Pfh) edge node {$\ma$} (Pfha)
+			(Pfha) edge node {$\ma$} (Pfhaa)
+			
+			(Pfx) edge node {$*$} (Pfxx)
+			edge node {$\mh$} (Pfxh)
+			
+			(Pfxh) edge node {$\ma$} (Pfxha)
+			;
+		\end{tikzpicture}
+	\end{minipage}
+	%
+	\begin{minipage}{\textwidth/2-2em}
+		\begin{align*}
+			\TI{1}\mP(\mf(x,y)) \\
+			\TI{2}\mP(\mf(x),\mh(\ma)))\\
+			\TI{3}\mP(\mf(\mh(\ma)),\ma)
+		\end{align*}
+	\end{minipage}
+\end{block}
