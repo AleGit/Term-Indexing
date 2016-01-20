@@ -1,22 +1,24 @@
-\node (root) at (0,0) {.};
-\node (P) at (0,-1) {.};
-\node (Pf) at (-1,-2) {.};
+\node (root) at (1,0) {.};
+\node (h) at (0,-1) {.};
+\node (hf) at (-1,-2) {.};
 
-\node (Pfx) at (-2,-3) {.};
-\node (Pfxx) at (-3,-4) {.};
+\node (hfx) at (-2,-3) {.};
+\node (hfxx) at (-3,-4) {.};
 
-\node (Pfxh) at (-1,-4) {.};
-\node (Pfxha) at (-1,-5) {.};
+\node (hfxh) at (-2,-4) {.};
+\node (hfxha) at (-2,-5) {.};
 
-\node (Pfh) at (0,-3) {.};
-\node (Pfha) at (0,-4) {.};
-\node (Pfhaa) at (0,-5) {.};
+\node (hfh) at (-1,-3) {.};
+\node (hfha) at (-1,-4) {.};
+\node (hfhaa) at (-1,-5) {.};
 
-\node (1) at (-3,-4.2) {\scriptsize$1$};
-\node (2) at (-1,-5.2) {\scriptsize$2$};
-\node (3) at (0,-5.2) {\scriptsize$3$};
+\node (1) at (-3,-4.2) {\scriptsize$t_1$};
+\node (2) at (-2,-5.2) {\scriptsize$t_2$};
+\node (3) at (-1,-5.2) {\scriptsize$t_3$};
 
 \path[dashed,lightgray] 
-	(root) edge (-1.5,-1)
-		edge (1.5,-1)
-	(P) edge (1,-2);
+	(root) edge(0,0)
+		edge  (1,-1)
+	(h) edge (0,-2)
+		edge (-1,-1)
+		;

@@ -3,40 +3,47 @@
 % !TeX spellcheck = en_US
 
 \begin{block}{Retrieve}
-	\begin{minipage}{\textwidth/2}
+	\def\TRIEWIDTH{4cm}
+	\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+	\begin{minipage}{\TEXTWIDTH}
+		$
+			\TI{t_1}\mh(\mf(x,y)) ,
+			\TI{t_2}\mh(\mf(x),\mh(\ma))),
+			\TI{t_3}\mh(\mf(\mh(\ma)),\ma)
+		$
+		\begin{align*}
+			\mh(\mf(x',\ma))&\Rightarrow \mh.\mf.{*}.\ma 
+			\\[0.7em]
+			u: \mh(\mf(x',\ma))&\mapsto \{t_1, t_3\} \\
+			i:\mh(\mf(x',\ma))&\mapsto \{t_3\} \\
+			g:\mh(\mf(x',\ma))&\mapsto \{t_1\} \\
+			v:\mh(\mf(x',\ma))&\mapsto \{  \} \\
+		\end{align*}
+	\end{minipage}
+	%
+	\begin{minipage}{\TRIEWIDTH}
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index} 
 			
 			\path[]
-			(root) edge node {$\mP$} (P)
-			(P) edge node {$\mf$} (Pf)
-			(Pf) edge node {$\mh$} (Pfh)
-				edge node {$*$}(Pfx)
-			(Pfh) edge node {$\ma$} (Pfha)
-			(Pfha) edge node {$\ma$} (Pfhaa)
+			(root) edge node {$\mh$} (h)
+			(h) edge node {$\mf$} (hf)
+			(hf) edge node {$\mh$} (hfh)
+				edge node {$*$}(hfx)
+			(hfh) edge node {$\ma$} (hfha)
+			(hfha) edge node {$\ma$} (hfhaa)
 			
-			(Pfx) edge node {$*$} (Pfxx)
-			edge node {$\mh$} (Pfxh)
+			(hfx) edge node {$*$} (hfxx)
+			edge node {$\mh$} (hfxh)
 			
-			(Pfxh) edge node {$\ma$} (Pfxha)
+			(hfxh) edge node {$\ma$} (hfxha)
 			;
 			
-			\path[dotted,bend right]
-			(Pf) edge (Pfha)
-			(Pfx) edge (Pfxha)
+			\path[dotted,bend left=45,black]
+			(hf) edge (hfha)
+%			(hfx) edge (hfxha)
 			;
 		\end{tikzpicture}
 	\end{minipage}
 	%
-	\begin{minipage}{\textwidth/2-2em}
-		\begin{align*}
-			\TI{1}\mP(\mf(x,y)) \\
-			\TI{2}\mP(\mf(x),\mh(\ma)))\\
-			\TI{3}\mP(\mf(\mh(\ma)),\ma) \\
-			\\
-			u: \mP(\mf(x',y'))&\mapsto 
-		\end{align*}
-		
-		
-	\end{minipage}
 \end{block}

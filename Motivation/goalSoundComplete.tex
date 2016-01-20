@@ -4,31 +4,27 @@
 
 	\begin{goal}
 		A sound and refutation complete calculus.
-	\end{goal}
-	
-	\onslide<2->{
+	\end{goal}	
+\pause	
 	\begin{block}{Resolution (without equality)}
 		Resolve and factor all clauses and literals in an unsatisfiable set
-		\onslide<3->{ \begin{gather*}
+\pause
+	\begin{gather*}
 			\infer
 			[(\sigma)\text{ resolution}]
 			{(\mcC \lor \mcD)\sigma}
-			{{A} \lor\mcC & {\lnot B} \lor\mcD}
+			{A\lor\mcC & \lnot B \lor\mcD}
 			\hspace{1cm}
-		\onslide<4->{
 			\infer
 			[(\sigma)\text{ factoring}]
 			{(A \lor \mcC)\sigma}
-			{{A}\lor B\lor\mcC} \\[0.7em]
-			}
-			\sigma = \mgu(A,B)
-		\end{gather*} }
-		\onslide<5->{and the empty clause will be derived eventually.}
-	\end{block}
-	}
-	
-	\onslide<6->{
+			{A\lor B\lor\mcC} \\[0.7em]
+		\sigma = \mgu(A,B)
+	\end{gather*} 
+\pause
+	and the empty clause will be derived eventually.
+\end{block}
+\pause
 	\begin{observation}
 		Usually the set grows too fast to obtain a result.
 	\end{observation}
-}

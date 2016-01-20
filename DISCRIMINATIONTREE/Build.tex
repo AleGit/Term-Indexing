@@ -3,40 +3,47 @@
 % !TeX spellcheck = en_US
 
 \begin{block}{Insert}
-	\begin{minipage}{\textwidth/2}
+	\def\TRIEWIDTH{4cm}
+	\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+	\begin{minipage}{\TEXTWIDTH}
+		$
+			\TI{t_1}\mh(\mf(x,y)), 
+			\TI{t_2}\mh(\mf(x),\mh(\ma))),
+			\TI{t_3}\mh(\mf(\mh(\ma)),\ma)
+		$
+		\begin{align*}
+			t_1 &\Rightarrow \mh.\mf.{*}.{*}\\
+			t_2 &\Rightarrow \mh.\mf.{*}.\mh.\ma \\
+			t_3 &\Rightarrow \mh.\mf.\mh.\ma.\ma
+			\end{align*}
+	\end{minipage}
+	\begin{minipage}{\TRIEWIDTH}
 		\def\pyL{-0.3}
 		\def\pxL{-0.0}
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index}
 		
 		\path[colHi, bend right, dotted] 
-		(root) edge  (P)
-		(P) edge  (Pf)
-		(Pf) edge node {$*$} (Pfx)
-		(Pfx) edge[bend right=0] node {$*$} (Pfxx);
+		(root) edge  (h)
+		(h) edge  (hf)
+		(hf) edge node {$*$} (hfx)
+		(hfx) edge[bend right=0] node {$*$} (hfxx);
 		
 		\path[colLo, bend left, dotted] 
-		(root) edge (P)
-		(P) edge  (Pf)
-		(Pf) edge node {$*$} (Pfx)
-		(Pfx) edge[bend left=0] node {$\mh$} (Pfxh)
-		(Pfxh) edge[bend left=0] node {$\ma$} (Pfxha);
+		(root) edge (h)
+		(h) edge  (hf)
+		(hf) edge node {$*$} (hfx)
+		(hfx) edge[bend left=0] node {$\mh$} (hfxh)
+		(hfxh) edge[bend left=0] node {$\ma$} (hfxha);
 		
 		\path[colG]
-		(root) edge node[black] {$\mP$} (P)
-		(P) edge node[black] {$\mf$} (Pf)
-		(Pf) edge node[black] {$\mh$} (Pfh)
-		(Pfh) edge node[black] {$\ma$} (Pfha)
-		(Pfha) edge node[black] {$\ma$} (Pfhaa)
+		(root) edge node[black] {$\mh$} (h)
+		(h) edge node[black] {$\mf$} (hf)
+		(hf) edge node[black] {$\mh$} (hfh)
+		(hfh) edge node[black] {$\ma$} (hfha)
+		(hfha) edge node[black] {$\ma$} (hfhaa)
 		;
 		\end{tikzpicture}
 	\end{minipage}
 	%
-	\begin{minipage}{\textwidth/2-2em}
-		\begin{gather*}
-			\colHi\TI{1}\mP(\mf(x,y)) \\
-			\colLo\TI{2}\mP(\mf(x),\mh(\ma)))\\
-			\colG\TI{3}\mP(\mf(\mh(\ma)),\ma)
-		\end{gather*}
-	\end{minipage}
 \end{block}
