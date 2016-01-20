@@ -6,11 +6,7 @@
 	\def\TRIEWIDTH{4cm}
 	\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
 	\begin{minipage}{\TEXTWIDTH}
-		$
-			\TI{t_1}\mh(\mf(x,y)), 
-			\TI{t_2}\mh(\mf(x),\mh(\ma))),
-			\TI{t_3}\mh(\mf(\mh(\ma)),\ma)
-		$
+		\input{DISCRIMINATIONTREE/Terms}
 		\begin{align*}
 			t_1 &\Rightarrow \mh.\mf.{*}.{*}\\
 			t_2 &\Rightarrow \mh.\mf.{*}.\mh.\ma \\
@@ -22,6 +18,8 @@
 		\def\pxL{-0.0}
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index}
+		
+		
 		
 		\path[colHi, bend right, dotted] 
 		(root) edge  (h)

@@ -5,10 +5,18 @@
 
 	
 	\begin{block}{Variables}
-		Variants of terms should generate the same position strings
+		Different terms generate the same position strings
+		\pause
+		when
 		\begin{itemize}
-			\item either by ignoring \hfill$\mf(z,x) \mapsto \mf(*,*)$
-			\item or by normalizing \hfill$\mf(y,z) \mapsto \mf(*_1,*_2)$
+			\item variable names are ignored 
+			\hfill$\mf(z,y), \mf(y,x), \mf(x,x) \Rightarrow \mf(*,*)$
+			\pause
+			\item or normalized 
+			\hfill$\mf(z,y), \mf(z,x) \Rightarrow \mf(*_1,*_2)$
+			
+			\hfill$\mf(x,x)\Rightarrow\mf(*_1,*_1)$
 		\end{itemize}
-		variable names.
+		\pause
+		In the second case only variants of terms generate the same strings.
 \end{block}

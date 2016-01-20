@@ -1,0 +1,56 @@
+% !TeX root = ../m3talk.tex
+% !TeX spellcheck = en_US
+% !TeX encoding = UTF-8
+
+\begin{block}{Subterms}
+	\def\TRIEWIDTH{\textwidth/2-1em}
+	\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+
+\input{DISCRIMINATIONTREE/Terms}
+		
+		\vspace{1em}
+	\begin{minipage}{\TEXTWIDTH}
+		\begin{tikzpicture}[->, dotted]
+		\input{DISCRIMINATIONTREE/Index} 
+		\input{DISCRIMINATIONTREE/IndexEdges}
+		
+		\node (ha)  at (1,-2) {.} ;
+		
+		\path[solid] (h) edge node {$\ma$} (ha)
+		;
+		
+		\node (tha)  at (1,-2.2) {\scriptsize$t_2^{12}, t_3^{111}$} ;
+		
+		\path[dotted,bend left=45,black]
+		(hf) edge (hfha);
+		
+		\end{tikzpicture}
+	\end{minipage}
+	%
+	\begin{minipage}{\TRIEWIDTH}
+		\begin{tikzpicture}[->,dotted]
+		\input{DISCRIMINATIONTREE/Index} 
+		\input{DISCRIMINATIONTREE/IndexEdges}
+		
+		\node (hsubs) at (1,-2.5) {\colHi$\mh$};
+		
+		\path[dashdotted] (hsubs) 
+			edge[bend right=15] 
+			node[pos=0.2, above,sloped] {\scriptsize 11}
+		(hf)
+		
+			edge[bend left=20] 
+			node[pos=0.2, below,sloped] {\scriptsize 12}
+			(hfx)
+			
+			edge[bend right=20]  node[pos=0.2, below,sloped] {\scriptsize$\epsilon$} 
+			(root)
+			
+		;
+
+\path[dotted,bend left=45,black]
+(hf) edge (hfha);
+		\end{tikzpicture}
+	\end{minipage}
+	%
+\end{block}
