@@ -3,48 +3,52 @@
 % !TeX spellcheck = en_US
 
 \begin{block}{Retrieve}
-\begin{minipage}{\textwidth/2}
-\def\pyL{-0.3}
-\def\pxL{-0.0}
-\begin{tikzpicture}[->]
-\input{PATHINDEXING/Index}
-
-\path[bend right, dotted, colLo]
-(root) edge (h)
-(h) edge (h1)
-(h1) edge (h1f)
-(h1f) edge (h1f1)
-(h1f1) edge (h1f1a)
-edge (h1f1x)
-; 
-
-\path[bend left, dotted, colHi]
-(root) edge (h)
-(h) edge (h1)
-(h1) edge (h1f)
-(h1f) edge (h1f2)
-(h1f2) edge (h1f2x)
-; 
-\end{tikzpicture}
-\end{minipage}
-%
-\begin{minipage}{\textwidth/2-2em}
+\def\TRIEWIDTH{4cm}
+\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+\begin{minipage}{\TEXTWIDTH}
+	$
+	\TI{1}\mh(\mf(x,y)), 
+	\TI{2}\mh(\mf({ x},{\ma})), 
+	\TI{3}\mh(\mf(\ma,\ma))
+	$
 	\begin{align*}
-		\TI{1}\mP(\mf(x,y)) &\\
-		\TI{2}\mP(\mf({ x},{\ma}))& \\
-		\TI{3}\mP(\mf(\ma,\ma)) &\\[0.7em]
-		%
-		u : \mP(\mf({\colLo x'},{\colHi \mb}))
+		u : \mh(\mf({\colLo x'},{\colHi \mb}))
 			& \mapsto 
 			\{ 1,2,3 \} \cap \{ 1,3 \}
 			\\
-			i : \mP(\mf(x', \mb)) &\mapsto \{ 1,2,3 \} \cap \{  \}
+			i : \mh(\mf(x', \mb)) &\mapsto \{ 1,2,3 \} \cap \{  \}
 			\\
-			g : \mP(\mf(x', \mb)) &\mapsto \{ 1,2 \} \cap \{ 1 \}
+			g : \mh(\mf(x', \mb)) &\mapsto \{ 1,2 \} \cap \{ 1 \}
 			\\
-			v : \mP(\mf(x', \mb)) &\mapsto \{ 1,2 \} \cap \{  \}
+			v : \mh(\mf(x', \mb)) &\mapsto \{ 1,2 \} \cap \{  \}
 			\\
-			\colG v: \mP(\mf(x', x')) &\mapsto \{ 1,2 \} \cap \{ 1 \}
+			\\
+			\colG v: \mh(\mf(x', x')) &\mapsto \{ 1,2 \} \cap \{ 1 \}
 		\end{align*}
+\end{minipage}
+%
+\begin{minipage}{{\TRIEWIDTH}}
+	\def\pyL{-0.3}
+	\def\pxL{-0.0}
+	\begin{tikzpicture}[->]
+	\input{PATHINDEXING/Index}
+	
+	\path[bend right, dotted, colLo]
+	(root) edge (h)
+	(h) edge (h1)
+	(h1) edge (h1f)
+	(h1f) edge (h1f1)
+	(h1f1) edge (h1f1a)
+	edge (h1f1x)
+	; 
+	
+	\path[bend left, dotted, colHi]
+	(root) edge (h)
+	(h) edge (h1)
+	(h1) edge (h1f)
+	(h1f) edge (h1f2)
+	(h1f2) edge (h1f2x)
+	; 
+	\end{tikzpicture}
 \end{minipage}
 \end{block}

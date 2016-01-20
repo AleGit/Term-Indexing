@@ -2,17 +2,23 @@
 % !TeX spellcheck = en_US
 
 
-\begin{block}{Insert}
 
-%
-\begin{minipage}{\textwidth/2}
-	$\{
-	\TI{1}\mP(\mf(x,y)),
-	\TI{2}\mP(\mf({\colLo x},{\colHi\ma})),
-	\TI{3}\mP(\mf(\ma,\ma))
-	\}$
+\begin{block}{Build}
+\def\TRIEWIDTH{4cm}
+\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+\begin{minipage}{\TEXTWIDTH}
+	$
+	\TI{t_1}\,\mh(\mf(x,y)),
+	\TI{t_2}\mh(\mf( x,\ma)),
+	\TI{t_3}\mh(\mf(\ma,\ma))
+	$
+	\begin{align*}
+		t_1: &\quad.\mh.1.\mf.1.{*},  \mh.1.\mf.2.{*}\\
+		t_2: &\quad.\mh.1.\mf.1.{*},  \mh.1.\mf.2.\ma \\
+		t_3: &\quad.\mh.1.\mf.1.\ma,  \mh.1.\mf.2 \ma
+		\end{align*}
 \end{minipage}	
-\begin{minipage}{\textwidth/2-2em}
+\begin{minipage}{\TRIEWIDTH}
 \def\pyL{-0.3}
 \def\pxL{-0.0}
 \begin{tikzpicture}[->]

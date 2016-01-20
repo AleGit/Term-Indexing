@@ -12,7 +12,7 @@
 % hyperref
 xcolor={usenames,dvipsnames,svgnames,tablem} 
 %,bigger
-,handout
+%%,handout
 ]{beamer}
 % automatically loaded: xcolor, amsmath, amsthm, calc, geometry, hyperref, extsizes
 
@@ -27,47 +27,18 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 \date{January 27th, 2016}
 %======
 
-%\includeonly{Motivation}
+%\includeonly{PathIndexing}
 \begin{document}
 
 \selectlanguage{english}
 
-%\Cloud
-
-% === TITLE ===
-\frame[<+->]{
-\maketitle
-}
-
-% === REFERENCES ===
-\section*{References}
-\frame[<+->]{
-\frametitle{References}
-
-\nocite{SRV2001ti}	% ZHM2009jar, RV2003eir, NHRV2001ote
-\bibliographystyle{amsalpha}
-\bibliography{biblio}
-
-}
-
-%\cite{Sekar20011853}
-
-% === OVERVIEW ===
-
-\section*{Outline}
-\setcounter{tocdepth}{1}
-\frame[<+->]{
-\frametitle{Outline}
-	\tableofcontents
-}
-
-
+\include{Title}
+\include{References}
+\include{Overview}
 
 %====================================================================
 % BEGIN: CONTENT ----------------------------------------------------
 %====================================================================
-
-%\input{xy}
 
 \include{Motivation}
 
@@ -82,4 +53,3 @@ xcolor={usenames,dvipsnames,svgnames,tablem}
 \include{Experiences}
  
 \end{document}
-% ********************************
