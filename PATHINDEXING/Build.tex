@@ -1,8 +1,18 @@
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
+
 \begin{block}{Insert}
+
+%
 \begin{minipage}{\textwidth/2}
+	$\{
+	\TI{1}\mP(\mf(x,y)),
+	\TI{2}\mP(\mf({\colLo x},{\colHi\ma})),
+	\TI{3}\mP(\mf(\ma,\ma))
+	\}$
+\end{minipage}	
+\begin{minipage}{\textwidth/2-2em}
 \def\pyL{-0.3}
 \def\pxL{-0.0}
 \begin{tikzpicture}[->]
@@ -57,13 +67,5 @@
 %;
 
 \end{tikzpicture}
-\end{minipage}
-%
-\begin{minipage}{\textwidth/2-2em}
-	\begin{gather*}
-		\TI{1}\mP(\mf(x,y)) \\
-		\TI{2}\mP(\mf({\colLo x},{\colHi\ma})) \\
-		\TI{3}\mP(\mf(\ma,\ma)) \\
-		\end{gather*}
 \end{minipage}
 \end{block}

@@ -4,39 +4,11 @@
 
 
 	
-	\begin{block}{Ignore names}
-		\vspace{-1em}
-	\begin{align*}
-		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}
-%		\tag*{$\{\mf.1.{*}, \mf.2.{*}\}$}
-		\\
-		\mf(z,z)  &\mapsto \{ \mf 1 {*}, \mf 2 {*} \}
-%		\tag*{$\{\mf.1.{*}, \mf.2.{*}\}$}
-		\\
-		\text{pre-order}:
-		\mf(x,y) &\mapsto \mf {*} {*}
-%		\tag*{$\mf.{*}.{*}$}
-		\\
-		\mf(z,z) &\mapsto \mf {*} {*}
-%		\tag*{$\mf.{*}.{*}$}
-			\end{align*}
-			\end{block}
-%	
-
-\begin{block}{Normalize names}
-	\vspace{-1em}	
-	\begin{align*}
-		\text{path}: \mf(x,y)  &\mapsto \{ \mf 1 {x_1}, \mf 2 {x_2}  \}
-%		\tag*{$\{\mf.1.{*1}, \mf.2.{*2}\}$}
-		\\
-		\mf(z,z)  &\mapsto \{ \mf 1 {x_1}, \mf 2 {x_1} \}
-%		\tag*{$\{\mf.1.{*1}, \mf.2.{*1}\}$}
-		\\
-		\text{pre-order}:
-		\mf(x,y) &\mapsto \mf {x_1} {x_2}
-%		\tag*{$\mf.{*1}.{*2}$}
-		\\
-		\mf(z,z) &\mapsto \mf {x_1} {x_1}
-%		\tag*{$\mf.{*1}.{*1}$}
-	\end{align*}
-	\end{block}
+	\begin{block}{Variables}
+		Variants of terms should generate the same position strings
+		\begin{itemize}
+			\item either by ignoring \hfill$\mf(z,x) \mapsto \mf(*,*)$
+			\item or by normalizing \hfill$\mf(y,z) \mapsto \mf(*_1,*_2)$
+		\end{itemize}
+		variable names.
+\end{block}
