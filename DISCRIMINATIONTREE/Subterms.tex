@@ -9,44 +9,50 @@
 \input{DISCRIMINATIONTREE/Terms}
 		
 		\vspace{1em}
-	\begin{minipage}{\TEXTWIDTH}
+	\begin{minipage}{\TEXTWIDTH/2+2em}
 		\begin{tikzpicture}[->, dotted]
 		\input{DISCRIMINATIONTREE/Index} 
 		\input{DISCRIMINATIONTREE/IndexEdges}
+						\path[dotted,bend left=45,black]
+						(hf) edge (hfha);
 		
 		\node (ha)  at (1,-2) {.} ;
 		
 		\path[solid] (h) edge node {$\ma$} (ha)
 		;
 		
-		\node (tha)  at (1,-2.2) {\scriptsize$t_2^{12}, t_3^{111}$} ;
+
 		
-		\path[dotted,bend left=45,black]
-		(hf) edge (hfha);
+		\node (tha)  at (1,-2.2) {\scriptsize$t_2^{{\colHi 12}}, t_3^{{\colHi 111}}$} ;
+		
+
+	\node (lu) at (-3.5,-5.5) {} ;
 		
 		\end{tikzpicture}
 	\end{minipage}
 	%
-	\begin{minipage}{\TRIEWIDTH}
+	\begin{minipage}{\TRIEWIDTH/2-3em}
 		\begin{tikzpicture}[->,dotted]
 		\input{DISCRIMINATIONTREE/Index} 
 		\input{DISCRIMINATIONTREE/IndexEdges}
 		
-		\node (hsubs) at (1,-2.5) {\colHi$\mh$};
+		\node (hsubs) at (-3,-0.5) {\colHi$\mh$};
 		
-		\path[dashdotted] (hsubs) 
-			edge[bend right=15] 
-			node[pos=0.2, above,sloped] {\scriptsize 11}
+		\path[dashdotted, colHi] (hsubs) 
+			edge[bend left=10] 
+			node[above,sloped] {\scriptsize 11}
 		(hf)
 		
-			edge[bend left=20] 
-			node[pos=0.2, below,sloped] {\scriptsize 12}
+			edge[bend left=10] 
+			node[left] {\scriptsize 12}
 			(hfx)
 			
-			edge[bend right=20]  node[pos=0.2, below,sloped] {\scriptsize$\epsilon$} 
+			edge[bend right=10]  node[above,sloped] {\scriptsize$\epsilon$} 
 			(root)
 			
 		;
+		
+		\node (lu) at (-3.5,-5.5) {} ;
 
 \path[dotted,bend left=45,black]
 (hf) edge (hfha);
