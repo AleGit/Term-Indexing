@@ -1,4 +1,4 @@
-% !TeX root = m3talk.tex
+% !TeX root = ../m3talk.tex
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
@@ -20,25 +20,14 @@
 	\begin{minipage}{\TRIEWIDTH}
 		\begin{tikzpicture}[->]
 		\input{DISCRIMINATIONTREE/Index} 
-			
-			\path[]
-			(root) edge node {$\mh$} (h)
-			(h) edge node {$\mf$} (hf)
-			(hf) edge node {$\mh$} (hfh)
-				edge node {$*$}(hfx)
-			(hfh) edge node {$\ma$} (hfha)
-			(hfha) edge node {$\ma$} (hfhaa)
-			
-			(hfx) edge node {$*$} (hfxx)
-			edge node {$\mh$} (hfxh)
-			
-			(hfxh) edge node {$\ma$} (hfxha)
-			;
-			
-			\path[dotted,bend left=45,black]
-			(hf) edge (hfha)
-%			(hfx) edge (hfxha)
-			;
+		\renewcommand{\PAUSE}{\pause}	
+\PAUSE\path[bend right, dashed] (root) edge  (h);
+\PAUSE\path[bend right, dashed] (h) edge  (hf);
+\PAUSE\path[bend right, dashed] (hf) edge (hfx);			
+\PAUSE\path[bend right, dashed] (hfx) edge  (hfxx);
+\PAUSE\path[bend right, dashed] (hf) edge  (hfha);
+\PAUSE\path[bend right, dashed] (hfha) edge (hfhaa);
+
 				\node (lu) at (-3,-5.5) {} ;
 		\end{tikzpicture}
 	\end{minipage}
