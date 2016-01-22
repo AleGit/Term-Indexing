@@ -29,28 +29,23 @@
 \end{minipage}
 %
 \begin{minipage}{{\TRIEWIDTH}}
-\def\pyL{-0.2}
-\def\pxL{0.05}
 	\begin{tikzpicture}[->]
 	\input{PATHINDEXING/Index}
+	\renewcommand{\PAUSE}{\pause}
+
+	\PAUSE\path[bend right, dotted, colLo](root) edge (h);
+	\PAUSE\path[bend right, dotted, colLo]	(h) edge (h1);
+	\PAUSE\path[bend right, dotted, colLo]	(h1) edge (h1f);
+	\PAUSE\path[bend right, dotted, colLo]	(h1f) edge (h1f1);
+	\PAUSE\path[bend right, dotted, colLo]	(h1f1) edge (h1f1x)	; 
+	\PAUSE\path[bend right, dotted, colLo]	(h1f1) edge (h1f1a);
 	
-	\path[bend right, dotted, colLo]
-	(root) edge (h)
-	(h) edge (h1)
-	(h1) edge (h1f)
-	(h1f) edge (h1f1)
-	(h1f1) edge (h1f1a)
-	edge (h1f1x)
-	; 
+	\PAUSE\path[bend left, dotted, colHi]	(root) edge (h)	;
+	\PAUSE\path[bend left, dotted, colHi]	(h) edge (h1)	;
+	\PAUSE\path[bend left, dotted, colHi]	(h1) edge (h1f)	;
+	\PAUSE\path[bend left, dotted, colHi]	(h1f) edge (h1f2)	;
+	\PAUSE\path[bend left, dotted, colHi]	(h1f2) edge (h1f2x)	; 
 	
-	\path[bend left, dotted, colHi]
-	(root) edge (h)
-	(h) edge (h1)
-	(h1) edge (h1f)
-	(h1f) edge (h1f2)
-	(h1f2) edge (h1f2x)
-	; 
-	\node (lu) at (0,-0.5) {} ;
 	\end{tikzpicture}
 \end{minipage}
 \end{block}

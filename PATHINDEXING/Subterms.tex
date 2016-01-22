@@ -1,0 +1,90 @@
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+
+\begin{block}{$\TI{t_4}\mf(x,\ma) \foEQ x$}
+%	$
+%	\TI{t_1}\mh(\mf(x,y)), 
+%	\TI{t_2}\mh(\mf({ x},{\ma})), 
+%	\TI{t_3}\mh(\mf(\ma,\ma))
+%	$
+%	\hfill
+%	$\TI{t_4}\mf(x,\ma) \foEQ x$
+\def\TRIEWIDTH{\textwidth/2-1em}
+\def\TEXTWIDTH{\textwidth-\TRIEWIDTH-2em}
+\begin{minipage}{\TEXTWIDTH}
+\begin{tikzpicture}[->]
+\input{PATHINDEXING/Index}
+
+\renewcommand{\PAUSE}{\pause}
+\PAUSE
+\node (f) at (1.5,4) {.};
+\path (root) edge node {f} (f);
+\PAUSE
+\node (f1) at (0.5,4) {.};
+\path[] (f) edge node {1} (f1);
+\PAUSE
+\node (f1x) at (-0.5,4) {};
+\path(f1)	edge (f1x);
+\PAUSE
+\node (t1) at (-0.5,4.2) {\scriptsize$t_1^1$};
+\node (t1) at (-0.5,3.8) {\scriptsize$ t_2^1$};
+\PAUSE
+\node (f1a) at (-0.5,3) {};
+\path(f1) edge node {a} (f1a);
+\PAUSE
+\node (t3) at (-0.5,2.9) {\scriptsize$t_3^1$};
+\PAUSE
+\node (f2) at (0.5,3) {.};
+\path(f) edge node {2}  (f2);
+\PAUSE
+\node (f2x) at (-0.5,2) {};
+\path(f2) edge (f2x);
+\PAUSE
+\node (t1) at (-0.5,1.9) {\scriptsize$t_1^1$};
+\PAUSE
+\node (f2a) at (0.5,2) {};
+\path(f2) edge node {a} (f2a);
+\PAUSE
+\node (t2t3) at (0.5,1.9) {\scriptsize$t_2^1,t_3^1$};
+\PAUSE
+\node (a) at (3.5,4) {};
+\path (root)  edge node {$\ma$} (a);
+\node (t2t3t3) at (3.5,3.9) {\scriptsize$t_2^12,t_3^{11,12}$};
+	\onslide<1->{ } 
+\end{tikzpicture}
+\end{minipage}
+\pause
+\hfill
+\begin{minipage}{{\TRIEWIDTH}}
+\def\pyL{-0.2}
+\def\pxL{0.05}
+	\begin{tikzpicture}[->]
+
+\input{PATHINDEXING/Index}
+\renewcommand{\PAUSE}{\pause}
+
+	
+\PAUSE\node (hsubs) at (5,4) {$\mh$};
+\path[dotted, above, pos=0.3,sloped]  (hsubs) edge node {\scriptsize$\ANGLES{\epsilon,\mh}$} (h);
+
+\PAUSE\node (fsubs) at (5,3) {$\mf$};
+\path[dotted, above, pos=0.3,sloped]  (fsubs) edge node {\scriptsize$\ANGLES{1,\mf}$} (h1f);
+	
+\PAUSE\node (asubs) at (5,2) {$\ma$};
+\path[dotted, above, bend right, pos=0.3,sloped]  (asubs) edge node {\scriptsize$\ANGLES{11,\ma}$} (h1f1a);
+\path[dotted, bend right, below, pos=0.3,sloped]  (asubs) edge node {\scriptsize$\ANGLES{12,\ma}$} (h1f2a);
+
+	\end{tikzpicture}
+\end{minipage}
+
+
+\end{block}
+
+	$
+	\TI{t_1}\mh(\mf(x,y)), 
+	\TI{t_2}\mh(\mf({ x},{\ma})), 
+	\TI{t_3}\mh(\mf(\ma,\ma))
+	$
+%	\hfill
+%	$\TI{t_4}\mf(x,\ma) \foEQ x$

@@ -19,61 +19,9 @@ $
 		\end{align*}
 \end{minipage}	
 \begin{minipage}{\TRIEWIDTH}
-\def\pyL{-0.2}
-\def\pxL{0.05}
 \begin{tikzpicture}[->]
+\renewcommand{\PAUSE}{\pause}
 \input{PATHINDEXING/Index}
-
-\path[dotted,bend right, colLo]
-(root) edge (h)
-(h) edge (h1)
-(h1) edge (h1f)
-(h1f) edge (h1f1)
-(h1f1) edge (h1f1x)
-;
-
-%\path[dashed,blue]
-%(root) edge (h)
-%(h) edge (h1)
-%(h1) edge (h1f)
-%(h1f) edge (h1f1)
-%(h1f1) edge (h1f1a)
-%;
-%
-%\path[dashed,red]
-%(root) edge (h)
-%(h) edge (h1)
-%(h1) edge (h1f)
-%(h1f) edge (h1f2)
-%(h1f2) edge (h1f2x)
-%;
-%
-\path[dotted,colHi,bend left]
-(root) edge (h)
-(h) edge (h1)
-(h1) edge (h1f)
-(h1f) edge (h1f2)
-(h1f2) edge (h1f2a)
-;
-%
-%\path[dashed,red]
-%(root) edge (h)
-%(h) edge (h1)
-%(h1) edge (h1g)
-%(h1g) edge (h1g1)
-%(h1g1) edge (h1g1x)
-%;
-%
-%\path[dashed,blue]
-%(root) edge (h)
-%(h) edge (h1)
-%(h1) edge (h1g)
-%(h1g) edge (h1g2)
-%(h1g2) edge (h1g2x)
-%;
-
-\node (lu) at (0,-0.5) {} ;
-
 \end{tikzpicture}
 \end{minipage}
 \end{block}

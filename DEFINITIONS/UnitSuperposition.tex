@@ -1,0 +1,46 @@
+% !TeX spellcheck = en_US
+% !TeX root = ../m3talk.tex
+% !TeX encoding = UTF-8
+
+\begin{block}{Unit Superposition Inference Rules}
+\begin{gather*}
+	\infer
+	[\TOPTEXT{unit}{paramodulation}]
+	{(L[t])\cdot\sigma}
+	{s\foEQ t&L[s']}
+\\\text{\footnotesize 
+where $\sigma=\mgu(s,s')$,
+$s'\not\in\mcV$,
+$t\sigma\not\succcurlyeq s\sigma$
+}\\[1em]
+%
+	\infer
+	[\TOPTEXT{unit}{superposition}]
+	{(u[t]\foNEQ v)\cdot\sigma}
+	{s\foEQ t&u[s']\foNEQ v}
+	\hspace{2mm}
+	\infer
+	[]
+	{(u[t]\foEQ v)\cdot\sigma}
+	{s\foEQ t&u[s']\foEQ v}
+\\\text{\footnotesize 
+where $\sigma=\mgu(s,s')$,
+$s'\not\in\mathcal{V},$
+$t\sigma\not\succcurlyeq s\sigma,$
+$v\sigma\not\succcurlyeq u[s']\sigma$
+}\\[1em]
+%
+	\infer
+	[\TOPTEXT{unit equality}{resolution}]
+	{\emptyclause}
+	{s\foNEQ t}
+	\hspace{4em}
+	\infer
+	[\TOPTEXT{unit}{resolution}]
+	{\emptyclause}
+	{A&\lnot B}\\
+\text{\footnotesize 
+where $s$ and $t$ ($A$ and $B$ respectively) are unifiable
+}
+\end{gather*}
+\end{block}
