@@ -17,38 +17,38 @@
 \input{PATHINDEXING/Index}
 \pause
 \node (f) at (1.5,4) {.};
-\path[blue] (root) edge node {f} (f);
+\path[colN] (root) edge node {f} (f);
 \pause
 \node (f1) at (0.5,4) {.};
-\path[blue] (f) edge node {1} (f1);
+\path[colN] (f) edge node {1} (f1);
 \pause
 \node (f1x) at (-0.5,4) {};
-\path[blue] (f1)	edge node {*} (f1x);
+\path[colN] (f1)	edge node {*} (f1x);
 \pause
-\node[blue] (t1) at (-0.5,4.2) {\scriptsize$t_1^1$};
-\node[blue] (t1) at (-0.5,3.8) {\scriptsize$ t_2^1$};
+\node[colN] (t1) at (-0.5,4.2) {\scriptsize$t_1^1$};
+\node[colN] (t1) at (-0.5,3.8) {\scriptsize$ t_2^1$};
 \pause
 \node (f1a) at (-0.5,3) {};
-\path[blue] (f1) edge node {a} (f1a);
+\path[colN] (f1) edge node {a} (f1a);
 \pause
-\node[blue] (t3) at (-0.5,2.9) {\scriptsize$t_3^1$};
+\node[colN] (t3) at (-0.5,2.9) {\scriptsize$t_3^1$};
 \pause
 \node (f2) at (0.5,3) {.};
-\path[blue] (f) edge node {2}  (f2);
+\path[colN] (f) edge node {2}  (f2);
 \pause
 \node (f2x) at (-0.5,2) {};
-\path[blue] (f2) edge node {*} (f2x);
+\path[colN] (f2) edge node {*} (f2x);
 \pause
-\node[blue] (t1) at (-0.5,1.9) {\scriptsize$t_1^1$};
+\node[colN] (t1) at (-0.5,1.9) {\scriptsize$t_1^1$};
 \pause
 \node (f2a) at (0.5,2) {};
-\path[blue] (f2) edge node {a} (f2a);
+\path[colN] (f2) edge node {a} (f2a);
 \pause
-\node[blue] (t2t3) at (0.5,1.9) {\scriptsize$t_2^1,t_3^1$};
+\node[colN] (t2t3) at (0.5,1.9) {\scriptsize$t_2^1,t_3^1$};
 \pause
 \node (a) at (3.5,4) {};
-\path[blue] (root)  edge node {$\ma$} (a);
-\node[blue] (t2t3t3) at (3.5,3.9) {\scriptsize$t_2^{12},t_3^{11,12}$};
+\path[colN] (root)  edge node {$\ma$} (a);
+\node[colN] (t2t3t3) at (3.5,3.9) {\scriptsize$t_2^{12},t_3^{11,12}$};
 	
 \onslide<1->
 \end{tikzpicture}
@@ -61,17 +61,17 @@
 	\begin{tikzpicture}[->,dotted]
 \input{PATHINDEXING/Index}
 \pause
-\node (hsubs) at (5,4) {$\mh$};
-\path[dashdotted, above, pos=0.3,sloped,bend right=5]  (hsubs) edge node {\scriptsize$\ANGLES{\epsilon,\mh}$} (h);
+\node[colN] (hsubs) at (5,4) {$\mh$};
+\path[dashdotted, above, pos=0.3,sloped,bend right=5,colN]  (hsubs) edge node {\scriptsize$\ANGLES{\epsilon,\mh}$} (h);
 
 \pause
-\node (fsubs) at (5,3) {$\mf$};
-\path[dashdotted, above, pos=0.3,sloped, bend right=5]  (fsubs) edge node {\scriptsize$\ANGLES{1,\mf}$} (h1f);
+\node[colN] (fsubs) at (5,3) {$\mf$};
+\path[dashdotted, above, pos=0.3,sloped, bend right=10,colN]  (fsubs) edge node {\scriptsize$\ANGLES{1,\mf}$} (h1f);
 	
 \pause
-\node (asubs) at (5,2) {$\ma$};
-\path[dashdotted, above, bend right, pos=0.3,sloped]  (asubs) edge node {\scriptsize$\ANGLES{11,\ma}$} (h1f1a);
-\path[dashdotted, bend right, below, pos=0.3,sloped]  (asubs) edge node {\scriptsize$\ANGLES{12,\ma}$} (h1f2a);
+\node[colN] (asubs) at (5,2) {$\ma$};
+\path[dashdotted, above, bend right, pos=0.3,sloped,colN]  (asubs) edge node {\scriptsize$\ANGLES{11,\ma}$} (h1f1a);
+\path[dashdotted, bend right, below, pos=0.3,sloped,colN]  (asubs) edge node {\scriptsize$\ANGLES{12,\ma}$} (h1f2a);
 
 \onslide<1->
 	\end{tikzpicture}

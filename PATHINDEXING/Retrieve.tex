@@ -12,24 +12,24 @@
 	\TI{t_3}\mh(\mf(\ma,\ma))
 	$
 	\begin{align*}
-		\mh(\mf(x,\mb))) &\Rightarrow\{ \mh.\mf.{*}, \mh.\mf.\mb\}
+		\mh(\mf(z,\mb))) &\Rightarrow\{ \mh.\mf.{*}, \mh.\mf.\mb\}
 		\\[0.7em]
-		u : \mh(\mf({\colLo x'},{\colHi \mb}))
+		u : \mh(\mf({\colN z},{\colHi \mb}))
 			& \mapsto 
 \onslide<6->{
-	\{ {\colHi t_1}, {\colG t_2}, 
+	\{ t_1, {\colG t_2}, 
 	\onslide<7->{t_3} \}
 }
 \onslide<12->{
-	\cap \{ {\colHi t_1} \}
+	\cap \{t_1 \}
 }\\
-\onslide<13->{			i : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2,t_3 }\} \cap \{  \}
+\onslide<13->{			i : \mh(\mf(z, \mb)) &\mapsto \{ {\colG t_1,t_2,t_3 }\} \cap \{  \}
 }			\\
-\onslide<14->{			g : \mh(\mf(x', \mb)) &\mapsto \{ {\colHi t_1,\colG t_2} \} \cap \{ {\colHi t_1} \}
+\onslide<14->{			g : \mh(\mf(z, \mb)) &\mapsto \{ t_1, {\colG t_2} \} \cap \{ t_1 \}
 }			\\
-\onslide<15->{			v : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2 }\} \cap \{  \}
+\onslide<15->{			v : \mh(\mf(z, \mb)) &\mapsto \{ {\colG t_1,t_2 }\} \cap \{  \}
 }		\\[0.7em]
-\onslide<16->{			\colG v: \mh(\mf(x', x')) &\mapsto \{ {\colLo t_1},{\colG t_2} \} \cap \{ {\colLo t_1} \}
+\onslide<16->{			\colG v: \mh(\mf(z, z)) &\mapsto \{ {\colLo t_1},{\colG t_2} \} \cap \{ {\colLo t_1} \}
 }		\end{align*}
 \end{minipage}
 %
@@ -37,12 +37,12 @@
 	\begin{tikzpicture}[->,dotted]
 	\input{PATHINDEXING/Index}
 
-	\pause\path[bend right, dashed, colLo](root) edge (h);
-	\pause\path[bend right, dashed, colLo]	(h) edge (h1);
-	\pause\path[bend right, dashed, colLo]	(h1) edge (h1f);
-	\pause\path[bend right, dashed, colLo]	(h1f) edge (h1f1);
-	\pause\path[bend right, dashed, colLo]	(h1f1) edge (h1f1x)	; 
-	\pause\path[bend right, dashed, colLo]	(h1f1) edge (h1f1a);
+	\pause\path[bend right, dashed, colN](root) edge (h);
+	\pause\path[bend right, dashed, colN]	(h) edge (h1);
+	\pause\path[bend right, dashed, colN]	(h1) edge (h1f);
+	\pause\path[bend right, dashed, colN]	(h1f) edge (h1f1);
+	\pause\path[bend right, dashed, colN]	(h1f1) edge (h1f1x)	; 
+	\pause\path[bend right, dashed, colN]	(h1f1) edge (h1f1a);
 	
 	\pause\path[bend left, dashed, colHi]	(root) edge (h)	;
 	\pause\path[bend left, dashed, colHi]	(h) edge (h1)	;

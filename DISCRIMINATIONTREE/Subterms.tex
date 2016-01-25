@@ -1,4 +1,4 @@
-% !TeX root = ../m3talk.tex
+% !TeX root = ../m3Handout.tex
 % !TeX spellcheck = en_US
 % !TeX encoding = UTF-8
 
@@ -10,8 +10,8 @@
 \begin{tikzpicture}[->, dotted]
 \input{DISCRIMINATIONTREE/Index}
 \pause\node (ha) at (1,-2) {.} ;
-\path[solid] (h) edge node {$\ma$} (ha);
-\pause\node (tha)  at (1,-2.2) {\scriptsize$t_2^{{\colHi 12}}, t_3^{{\colHi 111}}$} ;
+\path[dashdotted,colN] (h) edge node {$\ma$} (ha);
+\pause\node (tha)  at (1,-2.2) {\scriptsize$t_2^{{\colN 12}}, t_3^{{\colN 111}}$} ;
 \onslide<1->{(lu) at (-3.5,-5.5) {+}}
 \onslide<1->
 \end{tikzpicture}
@@ -21,20 +21,20 @@
 \begin{tikzpicture}[->,dotted]
 \pause
 \input{DISCRIMINATIONTREE/Index} 
-\pause\node (hsubs) at (-3,-0.5) {\colHi$\mh$};
-\pause\path[dashdotted, colHi] (hsubs) 
-	edge[bend right=10] node[above,sloped] 
-	{\scriptsize$\epsilon$}  (root);
-\pause\path[dashdotted, colHi] (hsubs) 
-			edge[bend left=10] 
-			node[above] 
-			{\scriptsize 11}
-			(hf);
+\pause\node (hsubs) at (1,-4.5) {};
+\pause\path[dashdotted, colN, sloped,above] (hsubs) 
+	edge[pos=0.4] node[sloped] 
+	{\scriptsize$\ANGLES{\epsilon,\mh}$}  (h);
+\pause\path[dashdotted, colN,sloped, above] (hsubs) 
+			edge[bend left=0,pos=0.4,sloped] 
+			node
+			{\scriptsize$\ANGLES{11,\mh}$}
+			(hfh);
 		
-\pause\path[dashdotted, colHi] (hsubs) 
-			edge[bend left=10] 
-			node[left] {\scriptsize 12} 
-			(hfx);
+\pause\path[dashdotted, colN] (hsubs) 
+			edge[bend left=0,pos=0.2,sloped] 
+			node[below] {\scriptsize $\ANGLES{12,\mh}$} 
+			(hfxh);
 		
 \node (lu) at (-3.5,-5.5) {} ;
 \onslide<1->
