@@ -1,4 +1,4 @@
-% !TeX root = ../m3talk.tex
+% !TeX root = ../m3Handout.tex
 % !TeX encoding = UTF-8
 % !TeX spellcheck = en_US
 
@@ -34,21 +34,21 @@
 \end{minipage}
 %
 \begin{minipage}{{\TRIEWIDTH}}
-	\begin{tikzpicture}[->]
+	\begin{tikzpicture}[->,dotted]
 	\input{PATHINDEXING/Index}
 
-	\pause\path[bend right, dotted, colLo](root) edge (h);
-	\pause\path[bend right, dotted, colLo]	(h) edge (h1);
-	\pause\path[bend right, dotted, colLo]	(h1) edge (h1f);
-	\pause\path[bend right, dotted, colLo]	(h1f) edge (h1f1);
-	\pause\path[bend right, dotted, colLo]	(h1f1) edge (h1f1x)	; 
-	\pause\path[bend right, dotted, colLo]	(h1f1) edge (h1f1a);
+	\pause\path[bend right, dashed, colLo](root) edge (h);
+	\pause\path[bend right, dashed, colLo]	(h) edge (h1);
+	\pause\path[bend right, dashed, colLo]	(h1) edge (h1f);
+	\pause\path[bend right, dashed, colLo]	(h1f) edge (h1f1);
+	\pause\path[bend right, dashed, colLo]	(h1f1) edge (h1f1x)	; 
+	\pause\path[bend right, dashed, colLo]	(h1f1) edge (h1f1a);
 	
-	\pause\path[bend left, dotted, colHi]	(root) edge (h)	;
-	\pause\path[bend left, dotted, colHi]	(h) edge (h1)	;
-	\pause\path[bend left, dotted, colHi]	(h1) edge (h1f)	;
-	\pause\path[bend left, dotted, colHi]	(h1f) edge (h1f2)	;
-	\pause\path[bend left, dotted, colHi]	(h1f2) edge (h1f2x)	; 
+	\pause\path[bend left, dashed, colHi]	(root) edge (h)	;
+	\pause\path[bend left, dashed, colHi]	(h) edge (h1)	;
+	\pause\path[bend left, dashed, colHi]	(h1) edge (h1f)	;
+	\pause\path[bend left, dashed, colHi]	(h1f) edge (h1f2)	;
+	\pause\path[bend left, dashed, colHi]	(h1f2) edge (h1f2x)	; 
 	\onslide<1->
 	\end{tikzpicture}
 \end{minipage}

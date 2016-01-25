@@ -7,15 +7,25 @@
 	\begin{block}{Variables}
 		Variants of terms generate the same position strings
 		\pause
-		if
 		\begin{itemize}
-			\item variable names are ignored 
-			\hfill$\mf(z,y), \mf(y,x), \mf(x,x) \Rightarrow \mf(*,*)$
+			\item if variable names are ignored 
+			\hfill$\mf(y,z) \Rightarrow
+			\ANGLES{\epsilon,\mf}
+			\ANGLES{1,*}
+			\ANGLES{2,*}
+			$
 			\pause
 			\item or normalized 
-			\hfill$\mf(z,y), \mf(z,x) \Rightarrow \mf(x_1,x_2)$
-			
-			\hfill$\mf(x,x)\Rightarrow\mf(x_1,x_1)$
+			\hfill$\mf(y,z) \Rightarrow
+				\ANGLES{\epsilon,\mf}
+				\ANGLES{1,x_1}
+				\ANGLES{2,x_2}$
+			\pause\\
+			\hfill$\mf(y,y) \Rightarrow
+			\ANGLES{\epsilon,\mf}
+			\ANGLES{1,x_1}
+			\ANGLES{2,x_1}
+			$
 		\end{itemize}
 		\pause
 		In the first case even non-variants of terms generate the same strings.
