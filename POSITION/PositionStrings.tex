@@ -3,54 +3,61 @@
 % !TeX encoding = UTF-8
 
 
-\begin{block}{Positions of a term}
+\begin{definition}[Position Strings]
 $
-	\Pos(t) =  
+	\Pos^\Sigma(t) =  
 	\begin{cases}
-		\{ \epsilon \} & \text{if }t=x\in\SIGV \\
-		\{ \epsilon \} \cup \{ ip\mid 1\leq i\leq n \land p\in\Pos(t_i)\} &
+\pause		\{ \ANGLES{\epsilon,x} \} & \text{if }t=x\in\SIGV \\
+\pause		\{ \ANGLES{\epsilon, f} \} \cup \{ \ANGLES{ip,s}\mid (p,s) \in\Pos^\Sigma(t_i)\} &
 		\text{if }t=f(t_1,\ldots,t_n)
 	\end{cases}
 $
-\end{block}
+\end{definition}
 
 %
+\pause
+\begin{block}{Term traversals}
 
-\begin{block}{Traversals of $\mh(\mf(\ma,y))$}
-	\vspace{-1em}
-\begin{minipage}[c]{3.1cm}
+\begin{minipage}[c]{3cm}
 \begin{tikzpicture}[right]
-\node (h) at (0,-1) {$\ANGLES{\epsilon,\mh}$};
-\node (hf) at (0,-2) {$\ANGLES{1,\mf}$};
-\node (hfa) at (-1,-3) {$\ANGLES{11,\ma}$};
-\node (hfy) at (1,-3) {$\ANGLES{12,\my}$};
+\onslide<5->{\node (h) at (0,-1) {$\ANGLES{\epsilon,\mh}$};}
+\onslide<6->{\node (hf) at (0,-2) {$\ANGLES{1,\mf}$};}
+\onslide<7->{\node (hfa) at (-1,-3) {$\ANGLES{11,\ma}$};}
+\onslide<8->{\node (hfy) at (1,-3) {$\ANGLES{12,\my}$};}
 %
-\path 
+\onslide<9->{\path[->,dashed] 
 	 (h) edge (hf)
 	(hf) 
-		edge (hfa)
 		edge (hfy) 
-;
+;}
+\onslide<10>{\path[->,dotted, bend right] 
+	(h) edge (hf)
+	(hf) edge (hfa) 
+	(hfa) edge[bend left] (hfy)
+	;}
 \end{tikzpicture}
 \end{minipage}
 %
 \begin{minipage}[c]{8.5cm}
-\begin{align*}
-\Pos(\mh(\mf(\ma,\my))) &= \{ \epsilon, 1, 11, 12 \}
-\\
-\mh(\mf(\ma,\my))|_{12} &= y \tag*{$\ANGLES{12,y}$}
-\\[1em]
-\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{12,y}
-&\quad 
-\text{root to leaf $y$} 
-%\tag{$\mh 1 \mf 2 y$}
-\\
-\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
-&\quad
-\text{pre-order} 
-%\tag{$\mh \mf \ma y$}
-\end{align*}
-%
-%%
+	\begin{gather*}
+		\onslide<4->{
+			\Pos^\Sigma(\mh(\mf(\ma,\my))) = \{ 
+		\onslide<5->{ \ANGLES{\epsilon,\mh}, 
+			}}
+		\onslide<6->{ \ANGLES{1,\mf}, }
+		\onslide<7->{ \ANGLES{11,\ma}, }
+		\onslide<8->{ \ANGLES{12,y} }
+		\} \\[2em]
+		\onslide<9->{\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{12,y}
+			\tag*{\onslide<9->{path from root to leaf}} 
+			%\tag{$\mh 1 \mf 2 y$}
+		}			\\
+		\onslide<10->{\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
+			\tag*{\onslide<10->{pre-order traversal}} 
+		}
+		\\
+		\\
+		\\
+	\end{gather*}
 \end{minipage}
 \end{block}
