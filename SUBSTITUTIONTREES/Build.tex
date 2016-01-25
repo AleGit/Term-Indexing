@@ -1,0 +1,47 @@
+% !TeX root \to ../m3Handout.tex
+% !TeX encoding \to UTF-8
+% !TeX spellcheck \to en_US
+
+\begin{block}{Build}
+	\renewcommand{\PAUSE}{\pause}
+$
+\TI{t_1}\mh(\mf(x,y)), 
+\TI{t_2}\mh(\mf(x,\mh(\ma))),
+\TI{t_3}\mh(\mf(\mh(\ma),\ma)),
+\TI{t_4}\mh(\mf(\ma,\ma)))
+$
+
+\begin{tikzpicture}[->]
+\PAUSE
+\node (root) at (0,0) {.};
+\node (h) at (0,-1) {$*_0 \to \mh(*_1)$};
+\path (root) edge (h);
+\PAUSE
+\node (f) at (0,-2) {$*_1 \to \mf(*_2,*_3)$};
+\path (h) edge (f);
+\PAUSE
+\node (x2x) at (-2,-3) {$*_2 \to x$} ;
+\path (f) edge (x2x);
+\PAUSE
+\node (x3y) at (-3,-4) {$*_3 \to y$};
+\path (x2x) edge (x3y);
+\node (t1) at (-3,-4.4) {$t_1$};
+\PAUSE
+\node (x3ha) at (-1,-4) {$*_3 \to \mh(\ma)$};
+\path (x2x) edge (x3ha);
+\node (t2) at (-1,-4.4) {$t_2$};
+\PAUSE
+\node (x3a)at (2,-3) {$*_3\to\ma$};
+\path (f) edge (x3a);
+\PAUSE
+\node (x2ha) at (1,-4) {$*_2\to\mh(\ma)$};
+\path (x3a) edge (x2ha);
+\node (t3) at (1,-4.4) {$t_3$};
+\PAUSE
+\node (x2a) at (3,-4) {$*_2\to\ma$};
+\path (x3a) edge (x2a);
+\node (t4) at (3,-4.4) {$t_4$};
+
+
+\end{tikzpicture}
+\end{block}
