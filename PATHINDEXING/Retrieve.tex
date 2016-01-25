@@ -16,36 +16,40 @@
 		\\[0.7em]
 		u : \mh(\mf({\colLo x'},{\colHi \mb}))
 			& \mapsto 
-			\{ {\colHi t_1,{\colG t_2},t_3 } \} \cap \{ {\colHi t_1, t_3} \}
-			\\
-			i : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2,t_3 }\} \cap \{  \}
-			\\
-			g : \mh(\mf(x', \mb)) &\mapsto \{ {\colHi t_1,\colG t_2} \} \cap \{ {\colHi t_1} \}
-			\\
-			v : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2 }\} \cap \{  \}
-		\\[0.7em]
-			\colG v: \mh(\mf(x', x')) &\mapsto \{ {\colLo t_1},{\colG t_2} \} \cap \{ {\colLo t_1} \}
-		\end{align*}
+\onslide<6->{
+	\{ {\colHi t_1}, {\colG t_2}, 
+	\onslide<7->{t_3} \}
+}
+\onslide<12->{
+	\cap \{ {\colHi t_1} \}
+}\\
+\onslide<13->{			i : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2,t_3 }\} \cap \{  \}
+}			\\
+\onslide<14->{			g : \mh(\mf(x', \mb)) &\mapsto \{ {\colHi t_1,\colG t_2} \} \cap \{ {\colHi t_1} \}
+}			\\
+\onslide<15->{			v : \mh(\mf(x', \mb)) &\mapsto \{ {\colG t_1,t_2 }\} \cap \{  \}
+}		\\[0.7em]
+\onslide<16->{			\colG v: \mh(\mf(x', x')) &\mapsto \{ {\colLo t_1},{\colG t_2} \} \cap \{ {\colLo t_1} \}
+}		\end{align*}
 \end{minipage}
 %
 \begin{minipage}{{\TRIEWIDTH}}
 	\begin{tikzpicture}[->]
 	\input{PATHINDEXING/Index}
-	\renewcommand{\PAUSE}{\pause}
 
-	\PAUSE\path[bend right, dotted, colLo](root) edge (h);
-	\PAUSE\path[bend right, dotted, colLo]	(h) edge (h1);
-	\PAUSE\path[bend right, dotted, colLo]	(h1) edge (h1f);
-	\PAUSE\path[bend right, dotted, colLo]	(h1f) edge (h1f1);
-	\PAUSE\path[bend right, dotted, colLo]	(h1f1) edge (h1f1x)	; 
-	\PAUSE\path[bend right, dotted, colLo]	(h1f1) edge (h1f1a);
+	\pause\path[bend right, dotted, colLo](root) edge (h);
+	\pause\path[bend right, dotted, colLo]	(h) edge (h1);
+	\pause\path[bend right, dotted, colLo]	(h1) edge (h1f);
+	\pause\path[bend right, dotted, colLo]	(h1f) edge (h1f1);
+	\pause\path[bend right, dotted, colLo]	(h1f1) edge (h1f1x)	; 
+	\pause\path[bend right, dotted, colLo]	(h1f1) edge (h1f1a);
 	
-	\PAUSE\path[bend left, dotted, colHi]	(root) edge (h)	;
-	\PAUSE\path[bend left, dotted, colHi]	(h) edge (h1)	;
-	\PAUSE\path[bend left, dotted, colHi]	(h1) edge (h1f)	;
-	\PAUSE\path[bend left, dotted, colHi]	(h1f) edge (h1f2)	;
-	\PAUSE\path[bend left, dotted, colHi]	(h1f2) edge (h1f2x)	; 
-	
+	\pause\path[bend left, dotted, colHi]	(root) edge (h)	;
+	\pause\path[bend left, dotted, colHi]	(h) edge (h1)	;
+	\pause\path[bend left, dotted, colHi]	(h1) edge (h1f)	;
+	\pause\path[bend left, dotted, colHi]	(h1f) edge (h1f2)	;
+	\pause\path[bend left, dotted, colHi]	(h1f2) edge (h1f2x)	; 
+	\onslide<1->
 	\end{tikzpicture}
 \end{minipage}
 \end{block}
