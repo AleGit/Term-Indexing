@@ -3,12 +3,12 @@
 % !TeX encoding = UTF-8
 
 
-\begin{definition}[Position Strings]
+\begin{definition}
 $
-	\Pos^\Sigma(t) =  
+	\PosStr(t) =  
 	\begin{cases}
 \pause		\{ \ANGLES{\epsilon,x} \} & \text{if }t=x\in\SIGV \\
-\pause		\{ \ANGLES{\epsilon, f} \} \cup \{ \ANGLES{ip,s}\mid \ANGLES{p,s} \in\Pos^\Sigma(t_i)\} &
+\pause		\{ \ANGLES{\epsilon, f} \} \cup \{ \ANGLES{ip,s}\mid \ANGLES{p,s} \in\PosStr(t_i)\} &
 		\text{if }t=f(t_1,\ldots,t_n)
 	\end{cases}
 $
@@ -17,7 +17,7 @@ $
 %
 \pause
 \begin{block}{Term traversals}
-
+	\vspace{-0.5em}
 \begin{minipage}[c]{3cm}
 \begin{tikzpicture}[right]
 \onslide<5->{\node (h) at (0,-1) {$\ANGLES{\epsilon,\mh}$};}
@@ -41,7 +41,7 @@ $
 \begin{minipage}[c]{8.5cm}
 	\begin{gather*}
 		\onslide<4->{
-			\Pos^\Sigma(\mh(\mf(\ma,\my))) = \{ 
+			\PosStr(\mh(\mf(\ma,\my))) = \{ 
 		\onslide<5->{ \ANGLES{\epsilon,\mh}, 
 			}}
 		\onslide<6->{ \ANGLES{1,\mf}, }
@@ -55,8 +55,6 @@ $
 		\onslide<10->{\ANGLES{\epsilon,\mh}\ANGLES{1,\mf}\ANGLES{11,\ma}\ANGLES{12,y}
 			\tag*{\onslide<10->{pre-order traversal}} 
 		}
-		\\
-		\\
 		\\
 	\end{gather*}
 \end{minipage}
